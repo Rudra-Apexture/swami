@@ -1,0 +1,128 @@
+
+
+
+backend/
+├── src/
+│   ├── index.js
+│   ├── routes/
+│   │   ├── auth.js
+│   │   ├── user.js
+│   │   ├── admin.js
+│   │   ├── hotels.js             # Hotel-related API endpoints
+│   │   ├── bookings.js           # Booking-related API endpoints
+│   │   ├── blog.js               # Blog-related API endpoints
+│   │   └── ...
+│   ├── controllers/
+│   │   ├── auth.js
+│   │   ├── user.js
+│   │   ├── admin.js
+│   │   ├── hotels.js
+│   │   ├── bookings.js
+│   │   ├── blog.js
+│   │   └── ...
+│   ├── models/
+│   │   ├── user.js
+│   │   ├── hotel.js              # Hotel model (PostgreSQL/MySQL/MongoDB)
+│   │   ├── room.js               # Room model (PostgreSQL/MySQL/MongoDB)
+│   │   ├── booking.js            # Booking model (PostgreSQL/MySQL/MongoDB)
+│   │   ├── blog.js               # Blog post model (PostgreSQL/MySQL/MongoDB)
+│   │   └── ...
+│   ├── services/
+│   │   ├── auth.js
+│   │   ├── user.js
+│   │   ├── hotels.js
+│   │   ├── bookings.js
+│   │   ├── blog.js
+│   │   ├── cms.js               # Content Management Service
+│   │   └── ...
+│   ├── middlewares/
+│   │   ├── auth.js               # Authentication middleware
+│   │   ├── permission.js          # Permission (Authorization) middleware
+│   │   └── ...
+│   ├── config/
+│   │   ├── database.js
+│   │   ├── index.js
+│   ├── utils/
+│   │   ├── password.js           # Password hashing utilities
+│   │   ├── email.js              # Email sending utilities
+│   │   ├── validation.js          # Data validation utilities
+│   │   └── ...
+│   ├── tests/
+│   │   ├── auth.test.js
+│   │   └── ...
+├── package.json
+└── .env
+
+
+
+
+
+
+
+
+
+
+
+backend/
+├── src/
+│   ├── index.ts
+│   ├── routes/
+│   │   ├── auth.ts
+│   │   ├── user.ts
+│   │   ├── admin.ts
+│   │   ├── hotels.ts             # Hotel-related API endpoints
+│   │   ├── bookings.ts           # Booking-related API endpoints
+│   │   ├── blog.ts               # Blog-related API endpoints
+│   │   └── ...
+│   ├── controllers/
+│   │   ├── auth.ts
+│   │   ├── user.ts
+│   │   ├── admin.ts
+│   │   ├── hotels.ts
+│   │   ├── bookings.ts
+│   │   ├── blog.ts
+│   │   └── ...
+│   ├── models/
+│   │   ├── user.ts
+│   │   ├── hotel.ts              # Hotel model (PostgreSQL/MySQL/MongoDB)
+│   │   ├── room.ts               # Room model (PostgreSQL/MySQL/MongoDB)
+│   │   ├── booking.ts            # Booking model (PostgreSQL/MySQL/MongoDB)
+│   │   ├── blog.ts               # Blog post model (PostgreSQL/MySQL/MongoDB)
+│   │   └── ...
+│   ├── services/
+│   │   ├── auth.ts
+│   │   ├── user.ts
+│   │   ├── hotels.ts
+│   │   ├── bookings.ts
+│   │   ├── blog.ts
+│   │   ├── cms.ts               # Content Management Service
+│   │   └── ...
+│   ├── middlewares/
+│   │   ├── auth.ts               # Authentication middleware
+│   │   ├── permission.ts          # Permission (Authorization) middleware
+│   │   └── ...
+│   ├── config/
+│   │   ├── database.ts
+│   │   ├── index.ts
+│   ├── utils/
+│   │   ├── password.ts           # Password hashing utilities
+│   │   ├── email.ts              # Email sending utilities
+│   │   ├── validation.ts          # Data validation utilities
+│   │   └── ...
+│   ├── types/
+│   │   ├── user.ts               # User related types
+│   │   ├── hotel.ts              # Hotel related types
+│   │   ├── booking.ts            # Booking related types
+│   │   ├── blog.ts               # Blog related types
+│   │   └── ...
+│   ├── tests/
+│   │   ├── auth.test.ts
+│   │   └── ...
+├── package.json
+├── tsconfig.json
+└── .env
+
+
+
+
+

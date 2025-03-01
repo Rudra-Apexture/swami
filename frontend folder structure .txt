@@ -1,0 +1,210 @@
+frontend/
+├── src/
+│   ├── app/
+│   │   ├── (public)/
+│   │   │   ├── page.js             # Home page (Public website)
+│   │   │   ├── layout.js           # Public website layout
+│   │   │   ├── hotels/              # Hotel Listing Page
+│   │   │   │   ├── page.js
+│   │   │   │   ├── [hotelId]/        # Dynamic route for individual hotel pages
+│   │   │   │   │   ├── page.js    # Hotel detail page
+│   │   │   ├── blog/                # Blog
+│   │   │   │   ├── page.js         # Blog listing page
+│   │   │   │   ├── [slug]/          # Dynamic route for individual blog posts
+│   │   │   │   │   ├── page.js    # Blog post detail page
+│   │   │   ├── contact/             # Contact Page
+│   │   │   │   ├── page.js
+│   │   │   ├── about/               # About Us Page
+│   │   │   │   ├── page.js
+│   │   │   ├── faq/                 # FAQ Page
+│   │   │   │   ├── page.js
+│   │   │   ├── terms/               # Terms and Conditions
+│   │   │   │   ├── page.js
+│   │   │   ├── privacy/             # Privacy Policy
+│   │   │   │   ├── page.js
+│   │   │   ├── components/          # Public Website specific components
+│   │   │   │   ├── HotelCard.js   # Reusable hotel card component
+│   │   │   │   ├── RoomCarousel.js # Component to show room images
+│   │   │   │   ├── ReviewList.js   # Component to show review
+│   │   │   │   └── ...
+│   │   ├── dashboard/               # User Dashboard (Authenticated)
+│   │   │   ├── page.js             # Dashboard landing page
+│   │   │   ├── layout.js           # Dashboard layout
+│   │   │   ├── bookings/            # Booking history and management
+│   │   │   │   ├── page.js       # Booking list
+│   │   │   │   ├── [bookingId]/     # Dynamic route for individual booking details
+│   │   │   │   │   ├── page.js  # Booking detail page
+│   │   │   ├── profile/             # Profile Management
+│   │   │   │   ├── page.js       # Edit profile page
+│   │   │   ├── components/          # Dashboard Specific components
+│   │   │   │   ├── BookingCard.js # Reusable booking card component
+│   │   │   │   └── ...
+│   │   ├── admin/                   # Admin Dashboard (Authenticated)
+│   │   │   ├── page.js             # Admin dashboard landing page
+│   │   │   ├── layout.js           # Admin dashboard layout
+│   │   │   ├── hotels/              # Admin: Hotel Management
+│   │   │   │   ├── page.js       # List of hotels (admin)
+│   │   │   │   ├── new/           # Create new hotel
+│   │   │   │   │   ├── page.js
+│   │   │   │   ├── [hotelId]/       # Dynamic route for individual hotel management
+│   │   │   │   │   ├── edit/      # Edit hotel details
+│   │   │   │   │   │   ├── page.js
+│   │   │   │   │   ├── rooms/     # Manage rooms for hotel
+│   │   │   │   │   │   ├── page.js
+│   │   │   ├── bookings/            # Admin: Booking Management
+│   │   │   │   ├── page.js       # List of bookings (admin)
+│   │   │   │   ├── [bookingId]/    # Dynamic route for individual booking details (admin)
+│   │   │   │   │   ├── page.js
+│   │   │   ├── users/               # Admin: User Management
+│   │   │   │   ├── page.js       # List of users (admin)
+│   │   │   ├── content/             # Admin: Content Management (CMS)
+│   │   │   │   ├── page.js       # CMS Dashboard
+│   │   │   │   ├── blog/          # Blog Management within CMS
+│   │   │   │   │   ├── page.js   # List of Blog Posts
+│   │   │   │   │   ├── new/       # Create new blog post
+│   │   │   │   │   │   ├── page.js
+│   │   │   │   │   ├── [postId]/  # Edit individual blog post
+│   │   │   │   │   │   ├── edit/
+│   │   │   │   │   │   │   ├── page.js
+│   │   │   │   ├── faq/           # FAQ Management within CMS
+│   │   │   │   │   ├── page.js
+│   │   │   ├── settings/            # Admin Settings
+│   │   │   │   ├── page.js
+│   │   │   ├── components/          # Admin Specific Components
+│   │   │   │   ├── HotelForm.js  # Form to create/edit hotels
+│   │   │   │   ├── BookingTable.js# Table to display bookings
+│   │   │   │   └── ...
+│   │   ├── auth/                   # Authentication-related pages (login, register, etc.)
+│   │   │   ├── login/
+│   │   │   │   └── page.js
+│   │   │   ├── register/
+│   │   │   │   └── page.js
+│   │   │   └── layout.js          # Auth layout
+│   │   ├── api/                    # Client-side API interaction
+│   │   │   ├── hotels.js          # API calls related to hotels
+│   │   │   ├── bookings.js        # API calls related to bookings
+│   │   │   ├── users.js           # API calls related to users
+│   │   │   ├── blog.js            # API calls related to blog posts
+│   │   ├── components/             # Reusable React components (Generic)
+│   │   │   ├── ui/
+│   │   │   ├── sections/
+│   │   │   ├── cards/
+│   │   │   └── ...
+│   │   ├── lib/                    # Utility functions, helpers, constants, etc.
+│   │   ├── styles/                  # CSS modules or global CSS files
+│   │   ├── public/                  # Static assets (images, fonts, etc.)
+│   │   ├── middleware.js            # Authentication middleware (Next.js)
+│   │   ├── next.config.js
+│   │   └── tailwind.config.js
+
+
+
+
+
+
+
+
+
+frontend/
+├── src/
+│   ├── app/
+│   │   ├── (public)/
+│   │   │   ├── page.tsx             # Home page (Public website)
+│   │   │   ├── layout.tsx           # Public website layout
+│   │   │   ├── hotels/              # Hotel Listing Page
+│   │   │   │   ├── page.tsx
+│   │   │   │   ├── [hotelId]/        # Dynamic route for individual hotel pages
+│   │   │   │   │   ├── page.tsx    # Hotel detail page
+│   │   │   ├── blog/                # Blog
+│   │   │   │   ├── page.tsx         # Blog listing page
+│   │   │   │   ├── [slug]/          # Dynamic route for individual blog posts
+│   │   │   │   │   ├── page.tsx    # Blog post detail page
+│   │   │   ├── contact/             # Contact Page
+│   │   │   │   ├── page.tsx
+│   │   │   ├── about/               # About Us Page
+│   │   │   │   ├── page.tsx
+│   │   │   ├── faq/                 # FAQ Page
+│   │   │   │   ├── page.tsx
+│   │   │   ├── terms/               # Terms and Conditions
+│   │   │   │   ├── page.tsx
+│   │   │   ├── privacy/             # Privacy Policy
+│   │   │   │   ├── page.tsx
+│   │   │   ├── components/          # Public Website specific components
+│   │   │   │   ├── HotelCard.tsx   # Reusable hotel card component
+│   │   │   │   ├── RoomCarousel.tsx # Component to show room images
+│   │   │   │   ├── ReviewList.tsx   # Component to show review
+│   │   │   │   └── ...
+│   │   ├── dashboard/               # User Dashboard (Authenticated)
+│   │   │   ├── page.tsx             # Dashboard landing page
+│   │   │   ├── layout.tsx           # Dashboard layout
+│   │   │   ├── bookings/            # Booking history and management
+│   │   │   │   ├── page.tsx       # Booking list
+│   │   │   │   ├── [bookingId]/     # Dynamic route for individual booking details
+│   │   │   │   │   ├── page.tsx  # Booking detail page
+│   │   │   ├── profile/             # Profile Management
+│   │   │   │   ├── page.tsx       # Edit profile page
+│   │   │   ├── components/          # Dashboard Specific components
+│   │   │   │   ├── BookingCard.tsx # Reusable booking card component
+│   │   │   │   └── ...
+│   │   ├── admin/                   # Admin Dashboard (Authenticated)
+│   │   │   ├── page.tsx             # Admin dashboard landing page
+│   │   │   ├── layout.tsx           # Admin dashboard layout
+│   │   │   ├── hotels/              # Admin: Hotel Management
+│   │   │   │   ├── page.tsx       # List of hotels (admin)
+│   │   │   │   ├── new/           # Create new hotel
+│   │   │   │   │   ├── page.tsx
+│   │   │   │   ├── [hotelId]/       # Dynamic route for individual hotel management
+│   │   │   │   │   ├── edit/      # Edit hotel details
+│   │   │   │   │   │   ├── page.tsx
+│   │   │   │   │   ├── rooms/     # Manage rooms for hotel
+│   │   │   │   │   │   ├── page.tsx
+│   │   │   ├── bookings/            # Admin: Booking Management
+│   │   │   │   ├── page.tsx       # List of bookings (admin)
+│   │   │   │   ├── [bookingId]/    # Dynamic route for individual booking details (admin)
+│   │   │   │   │   ├── page.tsx
+│   │   │   ├── users/               # Admin: User Management
+│   │   │   │   ├── page.tsx       # List of users (admin)
+│   │   │   ├── content/             # Admin: Content Management (CMS)
+│   │   │   │   ├── page.tsx       # CMS Dashboard
+│   │   │   │   ├── blog/          # Blog Management within CMS
+│   │   │   │   │   ├── page.tsx   # List of Blog Posts
+│   │   │   │   │   ├── new/       # Create new blog post
+│   │   │   │   │   │   ├── page.tsx
+│   │   │   │   │   ├── [postId]/  # Edit individual blog post
+│   │   │   │   │   │   ├── edit/
+│   │   │   │   │   │   │   ├── page.tsx
+│   │   │   │   ├── faq/           # FAQ Management within CMS
+│   │   │   │   │   ├── page.tsx
+│   │   │   ├── settings/            # Admin Settings
+│   │   │   │   ├── page.tsx
+│   │   │   ├── components/          # Admin Specific Components
+│   │   │   │   ├── HotelForm.tsx  # Form to create/edit hotels
+│   │   │   │   ├── BookingTable.tsx# Table to display bookings
+│   │   │   │   └── ...
+│   │   ├── auth/                   # Authentication-related pages (login, register, etc.)
+│   │   │   ├── login/
+│   │   │   │   └── page.tsx
+│   │   │   ├── register/
+│   │   │   │   └── page.tsx
+│   │   │   └── layout.tsx          # Auth layout
+│   │   ├── api/                    # Client-side API interaction
+│   │   │   ├── hotels.ts          # API calls related to hotels
+│   │   │   ├── bookings.ts        # API calls related to bookings
+│   │   │   ├── users.ts           # API calls related to users
+│   │   │   ├── blog.ts            # API calls related to blog posts
+│   │   ├── components/             # Reusable React components (Generic)
+│   │   │   ├── ui/
+│   │   │   ├── sections/
+│   │   │   ├── cards/
+│   │   │   └── ...
+│   │   ├── lib/                    # Utility functions, helpers, constants, etc.
+│   │   ├── styles/                  # CSS modules or global CSS files
+│   │   ├── public/                  # Static assets (images, fonts, etc.)
+│   │   ├── types/                   # TypeScript type definitions
+│   │   ├── middleware.ts            # Authentication middleware (Next.js)
+│   │   ├── next.config.js
+│   │   ├── tailwind.config.js
+│   │   └── tsconfig.json
+
+
+
