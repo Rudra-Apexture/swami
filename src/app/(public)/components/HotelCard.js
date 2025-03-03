@@ -178,7 +178,7 @@ const HotelCard = ({ room }) => {
     return (
         <>
             {/* Image Section */}
-            <div className='flex flex-col border border-gray-300 shadow-md rounded-2xl lg:mb-12'>
+            <div className='flex flex-col border border-gray-300 shadow-md rounded-2xl'>
                 <div className='relative h-62 overflow-hidden'>
                     <Image
                         src={room.images[0]}

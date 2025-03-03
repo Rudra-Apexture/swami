@@ -8,6 +8,8 @@ import Ashram from './components/Ashram';
 import Slider from './components/Slider';
 import Review from './components/Review';
 import Ganga from './components/Ganga';
+import { FaArrowRightLong } from "react-icons/fa6";
+import Link from 'next/link';
 
 const roomsData = [
   {
@@ -75,6 +77,12 @@ export default function Home() {
         {roomsData.map((room) => (
           <HotelCard key={room.id} room={room} />
         ))}
+      </div>
+      <div className='flex justify-center items-center mt-10'>
+        <Link href='/rooms' className='capitalize flex items-center gap-4 text-lg bg-main text-center rounded-md text-white px-5 py-2'>
+          view all rooms
+          <FaArrowRightLong />
+        </Link>
       </div>
       <Wellness />
       <Ashram />
