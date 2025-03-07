@@ -12,7 +12,7 @@ body {
   /* font-family: var(--font-Lato); */
 }
 
-@theme {  
+@theme {
   --color-main: #FF5700;
   --color-prime: #1B1D22;
 }

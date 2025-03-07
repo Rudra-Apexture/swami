@@ -613,6 +613,101 @@
 
 // export default TestimonialSlider;
 
+// 'use client';
+// import Image from 'next/image';
+// import { FaStar, FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
+
+// const reviews = [
+//   {
+//     id: 1,
+//     quote: "I have traveled all over the world and stayed in amazing places, but this is indeed in a category of its own. The tranquility and spiritual atmosphere are unmatched.",
+//     rating: 5,
+//     author: "Saurav Ranakoti",
+//     image: "/assets/image/whitemen.jpg", // Replace with actual path
+//   },
+//   {
+//     id: 2,
+//     quote: "An absolutely incredible experience! The service was impeccable and the surroundings breathtaking.  I felt a sense of peace I've never experienced before.",
+//     rating: 4,
+//     author: "Padmanabha Swamy",
+//     image: "/assets/image/swami.jpg",// Replace with actual path
+//   },
+//   {
+//     id: 3,
+//     quote: "A truly spiritual place that exceeded all expectations. I highly recommend this ashram to anyone seeking peace and rejuvenation.  The food was also amazing!",
+//     rating: 5,
+//     author: "Saurav Ranakoti",
+//     image: "/assets/image/shavrav.jpg", // Replace with actual path
+//   },
+//   // Add more reviews here
+// ];
+
+// const ReviewCard = ({ review }) => {
+//   return (
+//     <div className="relative lg:p-8 p-6 rounded-xl shadow-md border border-gray-300 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 transition-all duration-300">
+//       {/* Quote Icons */}
+//       <div className="absolute top-4 lg:left-4 left-2 text-main/50">
+//         <FaQuoteLeft size={12} />
+//       </div>
+//       <div className="absolute lg:top-34 bottom-22 lg:right-10 right-8 text-main/50">
+//         <FaQuoteRight size={12} />
+//       </div>
+
+//       {/* Quote Text */}
+//       <p className="text-lg italic leading-6 lg:mb-8 mb-4 p-2 md:p-0">
+//         {review.quote}
+//       </p>
+
+//       {/* Author Info & Rating */}
+//       <div className="flex items-center justify-between lg:pt-5 pt-2.5 border-t border-gray-300 dark:border-gray-700">
+//         <div className="flex items-center space-x-4">
+//           <div className="relative lg:size-14 size-10 rounded-full overflow-hidden">
+//             <Image
+//               src={review.image}
+//               alt={review.author}
+//               width={150}
+//               height={100}
+//               style={{ objectFit: 'cover' }}
+//               className="object-cover w-full h-full"
+//             />
+//           </div>
+//           <div>
+//             <p className="font-medium text-prime">{review.author}</p>
+//             <div className="flex space-x-0.5 text-sm text-yellow-500">
+//               {[...Array(review.rating)].map((_, index) => (
+//                 <FaStar key={index} />
+//               ))}
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// const TestimonialList = () => {
+
+//   return (
+//     <div className="py-10 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+//       <div className="container mx-auto px-4">
+//         <h1 className="md:text-4xl text-3xl font-medium text-center mb-10 text-gray-900 dark:text-white">
+//           Guest <span className='bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent'>
+//             Reviews
+//           </span>
+//         </h1>
+
+//         <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
+//           {reviews.map((review) => (
+//             <ReviewCard key={review.id} review={review} />
+//           ))}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default TestimonialList;
+
 'use client';
 import Image from 'next/image';
 import { FaStar, FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
@@ -639,58 +734,54 @@ const reviews = [
     author: "Saurav Ranakoti",
     image: "/assets/image/shavrav.jpg", // Replace with actual path
   },
-  // Add more reviews here
 ];
 
 const ReviewCard = ({ review }) => {
   return (
-    <div className="relative lg:p-8 p-6 rounded-xl shadow-md border border-gray-300 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 transition-all duration-300">
-      {/* Quote Icons */}
-      <div className="absolute top-4 lg:left-4 left-2 text-main/50">
-        <FaQuoteLeft size={12} />
-      </div>
-      <div className="absolute lg:top-34 bottom-22 lg:right-10 right-8 text-main/50">
-        <FaQuoteRight size={12} />
+    <div className="relative p-6 rounded-2xl shadow border borde-gray-300/50 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200">
+      {/* Quote Icon */}
+      <div className="absolute top-4 right-4 text-gray-400 dark:text-gray-600">
+        <FaQuoteRight size={16} className='text-main/50' />
       </div>
 
-      {/* Quote Text */}
-      <p className="text-lg italic leading-6 lg:mb-8 mb-4 p-2 md:p-0">
-        {review.quote}
-      </p>
-
-      {/* Author Info & Rating */}
-      <div className="flex items-center justify-between lg:pt-5 pt-2.5 border-t border-gray-300 dark:border-gray-700">
-        <div className="flex items-center space-x-4">
-          <div className="relative lg:size-14 size-10 rounded-full overflow-hidden">
-            <Image
-              src={review.image}
-              alt={review.author}
-              width={150}
-              height={100}
-              style={{ objectFit: 'cover' }}
-              className="object-cover w-full h-full"
-            />
-          </div>
-          <div>
-            <p className="font-medium text-prime">{review.author}</p>
-            <div className="flex space-x-0.5 text-sm text-yellow-500">
-              {[...Array(review.rating)].map((_, index) => (
-                <FaStar key={index} />
-              ))}
-            </div>
+      {/* Author and Image */}
+      <div className="flex items-start space-x-4 mb-4">
+        <div className="relative w-14 h-14 rounded-full overflow-hidden">
+          <Image
+            src={review.image}
+            alt={review.author}
+            width={350}
+            height={150}
+            style={{ objectFit: 'cover' }}
+            className="object-cover w-full h-full"
+          />
+        </div>
+        <div>
+          <p className="font-semibold text-lg text-prime">{review.author}</p>
+          <div className="flex space-x-0.5 text-sm text-main">
+            {[...Array(review.rating)].map((_, index) => (
+              <FaStar key={index} />
+            ))}
           </div>
         </div>
       </div>
+
+      {/* Quote Text */}
+      <p className="text-gray-700 text-lg dark:text-gray-300 leading-relaxed">
+        {review.quote}
+      </p>
+
+      {/* Subtle Background Element (Optional) */}
+      <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-gray-50 dark:from-gray-700 to-transparent opacity-20 rounded-b-2xl"></div>
     </div>
   );
 };
 
 const TestimonialList = () => {
-
   return (
-    <div className="pb-10 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div className="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="container mx-auto px-4">
-        <h1 className="md:text-4xl text-3xl font-bold text-center mb-10 text-gray-900 dark:text-white">
+        <h1 className="md:text-4xl text-3xl font-medium text-center mb-10 text-gray-900 dark:text-white">
           Guest <span className='bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent'>
             Reviews
           </span>

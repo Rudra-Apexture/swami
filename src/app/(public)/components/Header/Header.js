@@ -232,10 +232,10 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { GoDash } from "react-icons/go";
 
 const aboutUsLinks = [
-    { href: "/about/overview", label: "About Ashram" },
-    { href: "/about/mission", label: "Rishikesh City" },
-    { href: "/about/mission", label: "Main Temples" },
-    { href: "/about/mission", label: "Place To Visit" },
+    { href: "/about-ashram", label: "About Ashram" },
+    { href: "/rishikesh-city", label: "Rishikesh City" },
+    { href: "/main-temple", label: "Main Temples" },
+    { href: "/place-to-visit", label: "Place To Visit" },
 ];
 
 export default function Header() {
@@ -335,7 +335,10 @@ export default function Header() {
                                     onClick={toggleAboutUs}
                                     className={`flex items-center cursor-pointer text-lg hover:text-[#FF7600] ${pathname.startsWith('/about') ? 'text-[#FF7600] ' : ''}`}
                                 >
-                                    About Us
+                                    <Link href="/about-us" >
+                                        About Us
+                                    </Link>
+
                                     {/* <FaAngleDown className={`size-5 ml-2 transition-transform  ${isAboutUsOpen ? 'rotate-180' : ''}`} /> */}
                                     <Image src="/assets/icons/down.png"
                                         width={500}

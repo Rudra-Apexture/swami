@@ -60,8 +60,8 @@ const AshramServices = () => {
             title: 'Free Wi-Fi Available',
             description: 'Sahajanand wellness provides all information regarding the Ashram from the internet. Free WiFi is available 24 hours a day on every floor of the building.',
             icon: <FaWifi size={24} className="text-orange-500" />,
-            bgColor: 'bg-amber-50',
-            borderColor: 'border-amber-200',
+            bgColor: 'bg-orange-50',
+            borderColor: 'border-orange-200',
         },
         {
             title: 'Bhagwat and Aarti',
@@ -74,20 +74,20 @@ const AshramServices = () => {
             title: 'Donation and Charity',
             description: 'All the activities of the trust are run by donations. We provide lodging and food to pilgrims who are encouraged to make donations for our charity work. Your contributions help us serve the community.',
             icon: <FaDonate size={24} className="text-orange-500" />,
-            bgColor: 'bg-amber-50',
-            borderColor: 'border-amber-200',
+            bgColor: 'bg-orange-50',
+            borderColor: 'border-orange-200',
         },
     ];
 
     return (
-        <section className="relative py-10 overflow-hidden">
+        <section className="relative overflow-hidden">
             <div className="container mx-auto px-4 relative z-10">
                 {/* Section Header */}
                 <div className="max-w-3xl mx-auto text-center mb-10">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                    <h2 className="text-3xl md:text-4xl font-medium mb-4">
                         Shree Swaminarayan <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">Ashram</span>
                     </h2>
-                    <p className="text-gray-700 text-lg">Gateway to Spiritual Enlightenment</p>
+                    <p className="text-gray-700  text-lg">Gateway to Spiritual Enlightenment</p>
                 </div>
 
                 {/* Services Cards */}
@@ -95,17 +95,17 @@ const AshramServices = () => {
                     {servicesData.map((service, index) => (
                         <div
                             key={index}
-                            className={`group relative ${service.bgColor} border ${service.borderColor} rounded-2xl p-8 transition-all duration-300 hover:-translate-y-3`}
+                            className={`group relative ${service.bgColor} border ${service.borderColor} rounded-2xl p-8 transition-all duration-300 hover:-translate-y-3.5`}
                         >
                             <div className="mb-6 relative">
                                 <div className="flex items-center mb-4">
-                                    <div className="p-3 bg-white rounded-full shadow-md mr-4 transition-colors duration-300 group-hover:bg-[#FF5700]">
+                                    <div className="p-3 bg-white rounded-full mr-4 transition-colors duration-300 group-hover:bg-main">
                                         {React.cloneElement(service.icon, {
-                                            className: `transition-colors duration-300 ${service.icon.props.className} group-hover:text-white`,
+                                            className: `transition-all duration-500 ease-in-out ${service.icon.props.className} group-hover:text-white group-hover:rotate-360`,
                                         })}
 
                                     </div>
-                                    <h3 className="text-xl font-bold text-gray-800 transition-colors duration-300 group-hover:text-[#FF5700]">
+                                    <h3 className="text-xl font-medium text-gray-800 transition-colors duration-300 group-hover:text-main">
                                         {service.title}
                                     </h3>
                                 </div>

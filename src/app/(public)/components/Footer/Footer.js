@@ -188,11 +188,11 @@
 
 import React from 'react';
 import { FaFacebook, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa6";
-import { CiMail } from "react-icons/ci";
 import { FiPhone } from "react-icons/fi";
 import { LuMapPin } from "react-icons/lu";
 import { FaOm } from "react-icons/fa6";
 import { GoMail } from "react-icons/go";
+import Link from 'next/link';
 
 
 const AshramFooter = () => {
@@ -243,8 +243,8 @@ const AshramFooter = () => {
                         </h3>
                         <div className="grid md:grid-cols-2 gap-x-8 gap-y-2 text-prime">
                             <a href="#" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Home</a>
-                            <a href="#" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">About Us</a>
-                            <a href="#" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Ashram</a>
+                            <Link href="/about-us" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">About Us</Link>
+                            <Link href="/rooms" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Ashram</Link>
                             <a href="#" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Rooms</a>
                             <a href="#" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Amenities</a>
                             <a href="#" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Contact</a>
@@ -284,9 +284,8 @@ const AshramFooter = () => {
 
                     {/* Column 3: Payment Information */}
                     <div className="flex flex-col">
-                        <h3 className="text-xl font-semibold mb-4 text-orange-800 relative">
-                            <span className="relative z-10">Payments </span>
-                            <span className="absolute bottom-0 left-0 w-full h-2 bg-orange-100 -z-1"></span>
+                        <h3 className="text-xl font-semibold mb-4 text-orange-800">
+                            <span>Payments </span>
                         </h3>
                         <img src="/assets/image/payment.jpeg" alt="Payment QR Code" className="w-44 h-auto rounded-md" />
                     </div>

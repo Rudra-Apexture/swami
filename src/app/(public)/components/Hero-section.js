@@ -1479,7 +1479,7 @@
 // "use client";
 
 // import { useState, useRef, useEffect } from "react";
-// import { DatePickerWithRange } from "../../components/DatePickerWithRange.js.js";
+// import { DatePickerWithRange } from "../../components/DatePickerWithRange.js";
 // import CustomDropdown from "./Dropdown.js";
 
 // const HeroSection = () => {
@@ -1694,7 +1694,6 @@
 // export default HeroSection;
 
 // "use client";
-
 // import { useState, useRef, useEffect } from "react";
 // import { DatePickerWithRange } from "../../components/DatePickerWithRange.js";
 // import CustomDropdown from "./Dropdown.js";
@@ -1923,13 +1922,11 @@
 
 // export default HeroSection;
 
+
 "use client";
 import { useState, useRef, useEffect, Children } from "react";
 import { DatePickerWithRange } from "../../components/DatePickerWithRange.js";
 import CustomDropdown from "./Dropdown.js";
-import { FaHome } from "react-icons/fa";
-import { FaChild } from "react-icons/fa";
-import { FaChildren } from "react-icons/fa6";
 
 const HeroSection = () => {
     const [dateRange, setDateRange] = useState(null);
@@ -2083,50 +2080,6 @@ const HeroSection = () => {
                                         </div>
                                     </div>
                                 </div>
-
-                                {/* <label className="block text-gray-700 font-medium mb-2">
-                                    Guest Information
-                                </label> */}
-
-                                {/* Main selector button */}
-                                {/* <button
-                                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                                    className="w-full bg-white border border-gray-200 rounded-2xl py-2 px-3 shadow-sm transition-all duration-300 focus:outline-none"
-                                >
-                                    <div className="flex items-center justify-between">
-                                        <div className="flex flex-wrap gap-2 items-center">
-                                            <div className="flex items-center gap-3 bg-orange-100 px-5 py-2 rounded-lg">
-                                                <div className="size-8 rounded-full bg-gradient-to-r from-main to-amber-500 text-white flex items-center justify-center shadow-sm">
-                                                    <FaBed className="size-4" />
-                                                </div>
-                                                <div>
-                                                    <p className="text-xs text-gray-500 font-medium leading-none">Rooms</p>
-                                                    <p className="text-gray-800 font-semibold">{selectedRoom.value}</p>
-                                                </div>
-                                            </div>
-
-                                            <div className="flex items-center gap-3 bg-orange-100 px-5 py-2 rounded-lg">
-                                                <div className="size-8 rounded-full bg-gradient-to-r from-main to-amber-500 text-white flex items-center justify-center shadow-sm">
-                                                    <FaUser className="size-4" />
-                                                </div>
-                                                <div>
-                                                    <p className="text-xs text-gray-500 font-medium leading-none">Adults</p>
-                                                    <p className="text-gray-800 font-semibold">{totalAdults}</p>
-                                                </div>
-                                            </div>
-
-                                            <div className="flex items-center gap-3 bg-orange-100 px-5 py-2 rounded-lg">
-                                                <div className="size-8 rounded-full bg-gradient-to-r from-main to-amber-500 text-white flex items-center justify-center shadow-sm">
-                                                    <FaChild className="size-4" />
-                                                </div>
-                                                <div>
-                                                    <p className="text-xs text-gray-500 font-medium leading-none">Children</p>
-                                                    <p className="text-gray-800 font-semibold">{totalChildren}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </button> */}
 
                                 {/* Dropdown Panel */}
                                 <div

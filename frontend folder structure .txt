@@ -80,7 +80,7 @@ frontend/
 │   │   │   ├── register/
 │   │   │   │   └── page.js
 │   │   │   └── layout.js          # Auth layout
-│   │   ├── api/                    # Client-side API interaction
+│   │   ├── api/                    # -side API interaction
 │   │   │   ├── hotels.js          # API calls related to hotels
 │   │   │   ├── bookings.js        # API calls related to bookings
 │   │   │   ├── users.js           # API calls related to users
@@ -187,7 +187,7 @@ frontend/
 │   │   │   ├── register/
 │   │   │   │   └── page.tsx
 │   │   │   └── layout.tsx          # Auth layout
-│   │   ├── api/                    # Client-side API interaction
+│   │   ├── api/                    # -side API interaction
 │   │   │   ├── hotels.ts          # API calls related to hotels
 │   │   │   ├── bookings.ts        # API calls related to bookings
 │   │   │   ├── users.ts           # API calls related to users

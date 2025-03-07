@@ -636,17 +636,17 @@ const Serving = () => {
 
     return (
         <>
-            <section className="md:py-14 py-10 relative overflow-hiddenc bg-white">
+            <section className="py-12 relative overflow-hidden bg-white">
                 <div className="container mx-auto relative px-4">
                     {/* Header */}
                     <div className="text-center max-w-6xl mx-auto mb-10 relative z-0">
-                        <h1 className="text-3xl lg:text-4xl font-bold mb-6">
+                        <h1 className="text-3xl lg:text-4xl font-medium mb-6">
                             <span className="text-prime">Welcome to </span>
                             <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
                                 Sahajanand Wellness
                             </span>
                         </h1>
-                        <p className="md:text-lg text-md text-gray-700 font-medium">
+                        <p className="text-lg text-gray-700 pb-4">
                             Sahajanand Wellness Trust is a religious trust registered in Uttarakhand.This trust is mainly dedicated to religious, educational, and health related activities in and around Rishikesh. Trust maintains dharmshala, gaushala, Veda-pathshala, yogshala, yagyashala, annakshetra (free food for saints and needy), health center, and conducts daily Ganga Arti. All the activities of the trust are run by donations.
                         </p>
                     </div>
@@ -664,14 +664,14 @@ const Serving = () => {
                                         alt="Ganga Arti at Sahajanand Wellness Trust"
                                         width={600}
                                         height={450}
-                                        className="object-cover w-full h-[450px]"
+                                        className="object-cover w-full h-[400px]"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                                     <button
                                         onClick={() => openVideoModal(videoUrl1)}
-                                        className="absolute bottom-8 cursor-pointer left-8 flex items-center gap-3 bg-white/90 backdrop-blur-sm text-main md:py-3 px-4 py-2 md:px-6 rounded-full group"
+                                        className="absolute bottom-8 cursor-pointer left-8 flex items-center gap-3 bg-white/90 backdrop-blur-sm text-main px-4 p-1.5 rounded-full group"
                                     >
-                                        <FaPlay className="lg:size-5 size-4" />
+                                        <FaPlay className="size-4" />
                                         <span className="font-medium text-sm md:text-base">Watch Ganga Arti</span>
                                     </button>
                                 </div>
@@ -681,7 +681,7 @@ const Serving = () => {
                         {/* Right Side - Content */}
                         <div className="relative z-10">
                             <div className="bg-white/80 backdrop-blur-sm lg:p-6">
-                                <h2 className="lg:text-4xl/10 text-2xl font-bold md:mb-4 mb-2">
+                                <h2 className="lg:text-4xl/11 text-2xl font-medium md:mb-4 mb-2">
                                     <span className="text-prime">Serving Devotees and </span>
                                     <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
                                         Communities in Rishikesh
@@ -689,8 +689,8 @@ const Serving = () => {
                                 </h2>
 
                                 {/* Tab Content */}
-                                <p className='md:text-lg text-md text-gray-700 font-medium'>
-                                    Sahajanand Wellness Trust, a registered religious trust in Uttarakhand, this place is so beautifull then another is dedicated to religious, educational, and health-related activities in Rishikesh.
+                                <p className='md:text-lg text-md text-gray-700'>
+                                    Sahajanand Wellness Trust, a registered religious trust in Uttarakhand, this place is so beautifull then another is dedicated to religious, educational, and health-related activities in Rishikesh this place is so beautifull then another is dedicated.
                                 </p>
                             </div>
                         </div>
@@ -730,7 +730,7 @@ const Serving = () => {
                 </AnimatePresence>
             </section>
 
-            <section className="md:py-14 py-10 relative overflow-hidden bg-white">
+            <section className="relative overflow-hidden bg-white">
                 <div className="container mx-auto relative px-4">
                     {/* Main Content */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-12 gap-6 items-center">
@@ -745,14 +745,14 @@ const Serving = () => {
                                         alt="Ganga Arti at Sahajanand Wellness Trust"
                                         width={600}
                                         height={450}
-                                        className="object-cover w-full h-[450px]"
+                                        className="object-cover w-full h-[400px]"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                                     <button
                                         onClick={() => openVideoModal(videoUrl2)}
-                                        className="absolute bottom-8 cursor-pointer right-4 flex items-center gap-3 bg-white/90 backdrop-blur-sm text-main md:py-3 px-4 py-2 md:px-6 rounded-full group"
+                                        className="absolute bottom-8 cursor-pointer right-4 flex items-center gap-3 bg-white/90 backdrop-blur-sm text-main px-4 p-1.5 rounded-full group"
                                     >
-                                        <FaPlay className="lg:size-5 size-4" />
+                                        <FaPlay className="size-4" />
                                         <span className="font-medium text-sm md:text-base">Watch Best Gift</span>
                                     </button>
                                 </div>
@@ -762,7 +762,7 @@ const Serving = () => {
                         {/* Right Side - Content */}
                         <div className="relative z-10 lg:order-1 order-2">
                             <div className="bg-white/80 backdrop-blur-sm lg:p-6">
-                                <h2 className="lg:text-4xl/10 text-2xl font-bold md:mb-4 mb-2">
+                                <h2 className="lg:text-4xl/11 md:text-3xl text-2xl font-medium md:mb-4 mb-2">
                                     <span className="text-prime">Enhancing Serenity and  </span>
                                     <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
                                         Charity Work
@@ -770,7 +770,7 @@ const Serving = () => {
                                 </h2>
 
                                 {/* Tab Content */}
-                                <p className='md:text-lg text-md text-gray-700 font-medium'>
+                                <p className='md:text-lg text-md text-gray-700'>
                                     At our ashram, we regretfully cannot offer room service. Meals are exclusively provided in the langar hall for breakfast, lunch, and dinner. We kindly request visitors to help maintain the tranquil environment of the ashram.
                                 </p>
                             </div>

@@ -4,6 +4,19 @@
     height: 5px;
 }
 
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar in WebKit-based browsers */
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
 /* Scrollbar thumb */
 .custom-scroll::-webkit-scrollbar-thumb {
     background: #FF7600;
@@ -73,5 +86,5 @@
 }
 
 .swiper-pagination .swiper-pagination-progressbar-fill {
-    background-color: #ff5700 !important ;
+    background-color: #ff5700 !important;
 }
