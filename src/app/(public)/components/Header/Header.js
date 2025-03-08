@@ -373,7 +373,7 @@ export default function Header() {
                                 <Link href="/gallery" className="text-lg hover:text-[#FF7600]">Gallery</Link>
                             </li>
                             <li>
-                                <Link href="/contact" className="text-lg hover:text-[#FF7600]">Contact Us</Link>
+                                <Link href="/contac-us" className="text-lg hover:text-[#FF7600]">Contact Us</Link>
                             </li>
                         </ul>
                         <Link href="/send-inquiry" className="bg-[#FF7600] uppercase text-white px-6 py-2 text-lg rounded">

@@ -75,6 +75,7 @@ import AshramCard from '@/app/components/AshramCard'
 
 
 const PlaceToVisit = () => {
+
     const ashramData = [
         {
             imageUrl: "/assets/image/river.png",
@@ -132,7 +133,6 @@ const PlaceToVisit = () => {
                     index={index}
                 />
             ))}
-
             
         </>
     );

@@ -56,7 +56,6 @@ const MainTemple = () => {
                                     <p className="md:text-lg text-base leading-normal text-gray-700">
                                         These temples attract devotees and tourists from far and wide who come to seek blessings, offer prayers, and experience the spiritual ambiance of Rishikesh.
                                     </p>
-
                                 </div>
                             </div>
                         </div>

@@ -146,6 +146,111 @@
 
 // export default Temples;
 
+// 'use client';
+// import React, { useState } from 'react';
+// import Image from 'next/image';
+
+// const templesData = [
+//     {
+//         name: 'Bhootnath Temple',
+//         description:
+//             'Built in remembrance of Lord Shiva, many believe this is where he rested before marrying Sati. The temple offers solitude and natural beauty, making it a great spot for peaceful visits.',
+//         location: 'Swarg Ashram, Rishikesh, Uttarakhand 249304',
+//         image: '/assets/image/Bhootnath-Temple.png',
+//     },
+//     {
+//         name: 'Neelkanth Mahadev Temple',
+//         description:
+//             'Dedicated to Lord Shiva, this temple is located inside a dense forest, making the journey adventurous. The temple’s divine energy and natural surroundings make it a must-visit.',
+//         location: 'Kotdwar Pauri Road, Kotdwara, Uttarakhand 246149',
+//         image: '/assets/image/Mahadev-Temple.jpg',
+//     },
+//     {
+//         name: 'Shri Bharat Mandir',
+//         description:
+//             'One of the oldest Vishnu temples in Rishikesh, founded by Adi Guru Shankaracharya. The temple houses ancient artifacts and a Saligram idol with historical significance.',
+//         location: '9, Ghat Rd, Mayakund, Rishikesh, Uttarakhand 249201',
+//         image: '/assets/image/ShriBharat-Temple.png',
+//     },
+//     {
+//         name: 'Parmarth Niketan',
+//         description:
+//             'A spiritual hub that also serves as a yoga center. The evening Ganga Aarti here is mesmerizing and attracts devotees and travelers from around the world.',
+//         location: 'Near Main Market Road, Ram Jhula, Swarg Ashram, Rishikesh, Uttarakhand 249304',
+//         image: '/assets/image/ParmarthNiketan-Temple.png',
+//     },
+//     {
+//         name: 'Gita Bhawan',
+//         description:
+//             'An ancient temple with walls adorned with depictions of Ramayana and Mahabharata. People gather here for spiritual retreats and the sacred Ganga Aarti.',
+//         location: 'Gangapar, P.O, Swarg Ashram, Rishikesh, Uttarakhand 249304',
+//         image: '/assets/image/GitaBhawan-Temple.png',
+//     },
+//     {
+//         name: 'Trayambakeshwar Temple',
+//         description:
+//             'A 13-story temple dedicated to Lord Shiva, also known as Tera Manzil Temple. It is considered one of the sacred Jyotirlingas and showcases intricate architecture.',
+//         location: 'Laxman Jhoola, Laxman Jhula, Rishikesh, Uttarakhand 249302',
+//         image: '/assets/image/Trayambakeshwar-Temple.png',
+//     },
+// ];
+
+// const Temples = () => {
+//     const [activeTemple, setActiveTemple] = useState(templesData[0]);
+
+//     return (
+//         <section className="relative min-h-screen">
+//             {/* Background Image */}
+//             <div className="absolute inset-0 w-full h-full">
+//                 <Image
+//                     src={activeTemple.image}
+//                     alt={activeTemple.name}
+//                     layout="fill"
+//                     objectFit="cover"
+//                     className="opacity-60 transition-opacity duration-500"
+//                 />
+//             </div>
+
+//             {/* Overlay Content */}
+//             <div className="relative z-10 flex flex-col justify-center items-center text-center min-h-screen bg-black/50 p-6">
+
+//                 {/* Title */}
+//                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+//                     Discover the Temples of Rishikesh
+//                 </h2>
+
+//                 {/* Tabs Navigation */}
+//                 <div className="flex flex-wrap justify-center gap-4 mb-8">
+//                     {templesData.map((temple) => (
+//                         <button
+//                             key={temple.name}
+//                             onClick={() => setActiveTemple(temple)}
+//                             className={`px-6 py-2 rounded-full transition-all text-lg font-medium 
+//                                 ${activeTemple.name === temple.name
+//                                     ? 'bg-orange-500 text-white'
+//                                     : 'bg-white text-black hover:bg-orange-500 hover:text-white'}`}
+//                         >
+//                             {temple.name}
+//                         </button>
+//                     ))}
+//                 </div>
+
+//                 {/* Temple Details */}
+//                 <div className="max-w-2xl bg-black/70 p-6 rounded-lg shadow-md">
+//                     <h3 className="text-3xl font-semibold text-orange-400 mb-4">{activeTemple.name}</h3>
+//                     <p className="text-lg text-gray-200 mb-4">{activeTemple.description}</p>
+//                     <p className="text-md text-gray-300">
+//                         <strong>Location:</strong> {activeTemple.location}
+//                     </p>
+//                 </div>
+//             </div>
+//         </section>
+//     );
+// };
+
+// export default Temples;
+
+
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -207,115 +312,117 @@ const Temples = () => {
     };
 
     return (
-        <section className="py-16 bg-gradient-to-b from-amber-50 to-white">
-            {/* Header with Animation */}
-            <div
-                className="container mx-auto text-center lg:mb-14 mb-10 px-4"
-            >
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium mb-6 relative">
-                    <span className="relative inline-block">
-                        A Spiritual Odyssey from
-                        <span className="block mt-2 bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
-                            Rishikesh's Temples
+        <>
+            <section className="py-10 bg-gradient-to-b from-amber-50 to-white">
+                {/* Header with Animation */}
+                <div
+                    className="container mx-auto text-center lg:mb-14 mb-10 px-4"
+                >
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium mb-6 relative">
+                        <span className="relative inline-block">
+                            A Spiritual Odyssey from
+                            <span className="block mt-2 bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">
+                                Rishikesh's Temples
+                            </span>
                         </span>
-                    </span>
-                </h2>
-                <div className="max-w-4xl mx-auto mt-10">
-                    <p
-                        className="text-base md:text-xl text-gray-700 leading-relaxed"
-                    >
-                        Nestled along the Ganges and cradled by the Himalayas, Rishikesh's temples are portals to divine realms. Begin at{' '}
-                        <span className="text-orange-500 font-medium">Neelkanth Mahadev</span>, where Shiva's cosmic sacrifice echoes through misty peaks. Wander to{' '}
-                        <span className="text-orange-500 font-medium">Triveni Ghat</span>, where the sacred confluence of rivers ignites souls during the hypnotic Ganga Aarti.
-                        At <span className="text-orange-500 font-medium">Bharat Mandir</span>, feel the pulse of ancient Vishnu worship, while{' '}
-                        <span className="text-orange-500 font-medium">Raghunath Temple</span> whispers tales of Rama's penance.
-                    </p>
+                    </h2>
+                    <div className="max-w-4xl mx-auto mt-5">
+                        <p
+                            className="text-base md:text-xl text-gray-700 leading-relaxed"
+                        >
+                            Nestled along the Ganges and cradled by the Himalayas, Rishikesh's temples are portals to divine realms. Begin at{' '}
+                            <span className="text-orange-500 font-medium">Neelkanth Mahadev</span>, where Shiva's cosmic sacrifice echoes through misty peaks. Wander to{' '}
+                            <span className="text-orange-500 font-medium">Triveni Ghat</span>, where the sacred confluence of rivers ignites souls during the hypnotic Ganga Aarti.
+                            At <span className="text-orange-500 font-medium">Bharat Mandir</span>, feel the pulse of ancient Vishnu worship, while{' '}
+                            <span className="text-orange-500 font-medium">Raghunath Temple</span> whispers tales of Rama's penance.
+                        </p>
+                    </div>
                 </div>
-            </div>
 
-            {/* Redesigned Temple Gallery */}
-            <div className="container mx-auto">
-                <div className="bg-white rounded-xl shadow-xl overflow-hidden">
-                    <div className="flex flex-col lg:flex-row">
-                        {/* Left Side - Temple Selection */}
-                        <div className="w-full lg:w-1/4 bg-gradient-to-b from-orange-100 to-amber-50 p-6">
-                            <h3 className="text-xl font-semibold text-orange-800 mb-8 border-b border-orange-300 pb-3">
-                                Sacred Destinations
-                            </h3>
-                            <div className="space-y-2">
-                                {templesData.map((temple, index) => (
-                                    <motion.button
-                                        key={temple.name}
-                                        initial={{ x: -30, opacity: 0 }}
-                                        animate={{ x: 0, opacity: 1 }}
-                                        transition={{ delay: index * 0.1, duration: 0.5 }}
-                                        onClick={() => handleTempleClick(temple.name)}
-                                        className={`w-full text-left py-3 px-4 rounded-sm transition-all duration-300 flex items-center ${activeTemple === temple.name
-                                            ? 'bg-gradient-to-r from-main to-amber-300/50 text-white'
-                                            : 'hover:bg-orange-100 text-gray-700'
-                                            }`}
-                                    >
-                                        {temple.name}
-                                    </motion.button>
-                                ))}
+                {/* Redesigned Temple Gallery */}
+                <div className="container mx-auto">
+                    <div className="bg-white rounded-xl shadow-lg  overflow-hidden">
+                        <div className="flex flex-col lg:flex-row">
+                            {/* Left Side - Temple Selection */}
+                            <div className="w-full lg:w-1/4 bg-gradient-to-b from-orange-100 to-amber-50 p-6">
+                                <h3 className="text-xl font-semibold text-orange-800 mb-8 border-b border-orange-300 pb-3">
+                                    Sacred Destinations
+                                </h3>
+                                <div className="space-y-2">
+                                    {templesData.map((temple, index) => (
+                                        <motion.button
+                                            key={temple.name}
+                                            initial={{ x: -30, opacity: 0 }}
+                                            animate={{ x: 0, opacity: 1 }}
+                                            transition={{ delay: index * 0.1, duration: 0.5 }}
+                                            onClick={() => handleTempleClick(temple.name)}
+                                            className={`w-full text-left md:p-3 p-2.5 md:text-lg text-base font-medium rounded-sm transition-all duration-300 flex items-center ${activeTemple === temple.name
+                                                ? 'bg-gradient-to-r from-main text-white'
+                                                : 'hover:bg-orange-100 text-prime'
+                                                }`}
+                                        >
+                                            {temple.name}
+                                        </motion.button>
+                                    ))}
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Center - Temple Image with Parallax Effect */}
-                        <div className="w-full lg:w-1/3 relative h-80 lg:h-auto overflow-hidden">
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={activeTemple}
-                                    initial={{ opacity: 0, scale: 1.1 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.5 }}
-                                    className="absolute inset-0"
-                                >
-                                    <Image
-                                        src={currentTempleData.image}
-                                        alt={currentTempleData.name}
-                                        fill
-                                        className="object-cover"
-                                        priority
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                                    <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                                        <h4 className="text-2xl font-bold">{currentTempleData.name}</h4>
-                                    </div>
-                                </motion.div>
-                            </AnimatePresence>
-                        </div>
+                            {/* Center - Temple Image with Parallax Effect */}
+                            <div className="w-full lg:w-1/3 relative h-80 lg:h-auto overflow-hidden">
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={activeTemple}
+                                        initial={{ opacity: 0, scale: 1.1 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.9 }}
+                                        transition={{ duration: 0.5 }}
+                                        className="absolute inset-0"
+                                    >
+                                        <Image
+                                            src={currentTempleData.image}
+                                            alt={currentTempleData.name}
+                                            fill
+                                            className="object-cover"
+                                            priority
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                                        <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                                            <h4 className="text-2xl font-bold">{currentTempleData.name}</h4>
+                                        </div>
+                                    </motion.div>
+                                </AnimatePresence>
+                            </div>
 
-                        {/* Right Side - Temple Description */}
-                        <div className="w-full lg:w-5/12 lg:p-8 p-4">
-                            <AnimatePresence mode="wait">
-                                <motion.div
-                                    key={activeTemple}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -20 }}
-                                    transition={{ duration: 0.4 }}
-                                >
-                                    <div className="flex items-center lg:mb-6 mb-0">
-                                        <div className="w-12 h-1 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full mr-3" />
-                                        <h3 className="text-2xl font-bold text-prime">{currentTempleData.name}</h3>
-                                    </div>
-                                    <p className="text-gray-700 mb-6 leading-relaxed">{currentTempleData.description}</p>
-                                    <div className="bg-amber-50 p-2 rounded-md border border-amber-100">
-                                        <h4 className="text-main font-medium mb-2 gap-2 flex items-center">
-                                            <FaMapMarkerAlt />
-                                            Sacred Location
-                                        </h4>
-                                        <p className="text-gray-700 text-sm lg:text-base">{currentTempleData.location}</p>
-                                    </div>
-                                </motion.div>
-                            </AnimatePresence>
+                            {/* Right Side - Temple Description */}
+                            <div className="w-full lg:w-5/12 lg:p-8 p-4">
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={activeTemple}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -20 }}
+                                        transition={{ duration: 0.4 }}
+                                    >
+                                        <div className="flex items-center lg:mb-6 mb-4">
+                                            <div className="w-12 h-1 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full mr-3" />
+                                            <h3 className="md:text-2xl text-xl font-bold text-prime">{currentTempleData.name}</h3>
+                                        </div>
+                                        <p className="text-gray-700 mb-6 leading-relaxed">{currentTempleData.description}</p>
+                                        <div className="bg-amber-50 p-2 rounded-md border border-amber-100">
+                                            <h4 className="text-main font-medium mb-2 gap-2 flex items-center">
+                                                <FaMapMarkerAlt />
+                                                Sacred Location
+                                            </h4>
+                                            <p className="text-gray-700 text-sm lg:text-base">{currentTempleData.location}</p>
+                                        </div>
+                                    </motion.div>
+                                </AnimatePresence>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 };
 
