@@ -77,7 +77,7 @@
 //                     <nav className="hidden lg:flex items-center gap-6 z-20 color stic   ky">
 //                         <ul className="flex space-x-6 items-center">
 //                             <li>
-//                                 <Link href="/" className={`text-lg hover:text-[#FF7600] ${pathname === '/' ? 'text-[#FF7600]' : ''}`}>
+//                                 <Link href="/" className={`text-lg hover:text-main ${pathname === '/' ? 'text-[#FF7600]' : ''}`}>
 //                                     Home
 //                                 </Link>
 //                             </li>
@@ -320,12 +320,12 @@ export default function Header() {
                     <nav className="hidden lg:flex items-center gap-6 z-20 color stic   ky">
                         <ul className="flex space-x-6 items-center">
                             <li>
-                                <Link href="/" className={`text-lg hover:text-[#FF7600] ${pathname === '/' ? 'text-[#FF7600]' : ''}`}>
+                                <Link href="/" className={`text-lg hover:text-main ${pathname === '/' ? 'text-main' : ''}`}>
                                     Home
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/rooms" className={`text-lg hover:text-[#FF7600] ${pathname === '/rooms' ? 'text-[#FF7600]' : ''}`}>
+                                <Link href="/rooms" className={`text-lg hover:text-main ${pathname === '/rooms' ? 'text-main' : ''}`}>
                                     Rooms
                                 </Link>
                             </li>
@@ -333,7 +333,7 @@ export default function Header() {
                             <li className="relative" ref={dropdownRef}>
                                 <button
                                     onClick={toggleAboutUs}
-                                    className={`flex items-center cursor-pointer text-lg hover:text-[#FF7600] ${pathname.startsWith('/about') ? 'text-[#FF7600] ' : ''}`}
+                                    className={`flex items-center cursor-pointer text-lg hover:text-main ${pathname.startsWith('/about') ? 'text-main ' : ''}`}
                                 >
                                     <Link href="/about-us" >
                                         About Us
@@ -356,7 +356,7 @@ export default function Header() {
                                             <li key={index} className={`transition-all duration-300 ease-out`}>
                                                 <Link
                                                     href={link.href}
-                                                    className="flex items-center gap-1 px-4 py-2 text-lg hover:bg-[#FF7600] hover:text-white"
+                                                    className="flex items-center gap-1 px-4 py-2 text-lg hover:bg-main hover:text-white"
                                                 >
                                                     {link.label}
                                                 </Link>
@@ -367,22 +367,25 @@ export default function Header() {
                             </li>
 
                             <li>
-                                <Link href="/amenities" className="text-lg hover:text-[#FF7600]">Amenities</Link>
+                                <Link href="/amenities" className="text-lg hover:text-main">Amenities</Link>
                             </li>
                             <li>
-                                <Link href="/gallery" className="text-lg hover:text-[#FF7600]">Gallery</Link>
+                                <Link href="/gallery" className="text-lg hover:text-main">Gallery</Link>
                             </li>
                             <li>
-                                <Link href="/contac-us" className="text-lg hover:text-[#FF7600]">Contact Us</Link>
+                                <Link href="/contac-us" className="text-lg hover:text-main">Contact Us</Link>
+                            </li>
+                            <li>
+                                <Link href="/bookings-list" className="text-lg hover:text-main">Bookings List</Link>
                             </li>
                         </ul>
-                        <Link href="/send-inquiry" className="bg-[#FF7600] uppercase text-white px-6 py-2 text-lg rounded">
+                        <Link href="/send-inquiry" className="bg-main uppercase text-white px-6 py-2 text-lg rounded">
                             Send Inquiry
                         </Link>
                     </nav>
 
                     <button
-                        className="lg:hidden p-1 rounded text-white bg-[#FF7600]"
+                        className="lg:hidden p-1 rounded text-white bg-main"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         {isMobileMenuOpen ? <FiX size={24} className='p-0.5' /> : <FiMenu size={24} className='p-0.5' />}
@@ -404,23 +407,24 @@ export default function Header() {
             >
 
                 <div className="p-3 flex justify-end items-center border-b border-gray-300">
-                    <button onClick={toggleMobileMenu} className="text-[#FF7600] rounded p-1">
+                    <button onClick={toggleMobileMenu} className="text-main rounded p-1">
                         <FiX size={26} className='size-6' />
                     </button>
                 </div>
 
                 <ul className="p-5 space-y-4">
                     <li>
-                        <Link href="/" className="text-lg hover:text-[#FF7600]">Home</Link>
+                        <Link href="/" className="text-lg hover:text-main">Home</Link>
                     </li>
                     <li>
-                        <Link href="/rooms" className="text-lg hover:text-[#FF7600]">Rooms</Link>
+                        <Link href="/rooms" className="text-lg hover:text-main">Rooms</Link>
                     </li>
 
                     <li>
-                        <button
+                        <Link
+                            href="/about-us"
                             onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
-                            className="text-lg hover:text-[#FF7600] w-full flex justify-between"
+                            className="text-lg hover:text-main w-full flex justify-between"
                         >
                             About Us
                             <svg
@@ -432,12 +436,12 @@ export default function Header() {
                             >
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
-                        </button>
+                        </Link>
 
                         {isMobileDropdownOpen && (
                             <ul className={`space-y-2.5 overflow-hidden transition-all duration-500 ease-in-out opacity-100 mt-2`}>
                                 {aboutUsLinks.map((link, index) => (
-                                    <li key={index} className={`transition-color bg-gray-50 hover:bg-[#FF7600] hover:text-white p-1.5 duration-300 ease-out`}>
+                                    <li key={index} className={`transition-color bg-gray-50 hover:bg-main hover:text-white p-1.5 duration-300 ease-out`}>
                                         <Link href={link.href} className='flex items-center gap-1 pl-2'>
                                             <GoDash className='size-6' />
                                             {link.label}
@@ -451,13 +455,13 @@ export default function Header() {
 
 
                     <li>
-                        <Link href="/amenities" className="text-lg hover:text-[#FF7600]">Amenities</Link>
+                        <Link href="/amenities" className="text-lg hover:text-main">Amenities</Link>
                     </li>
                     <li>
-                        <Link href="/gallery" className="text-lg hover:text-[#FF7600]">Gallery</Link>
+                        <Link href="/gallery" className="text-lg hover:text-main">Gallery</Link>
                     </li>
                     <li>
-                        <Link href="/contact" className="text-lg hover:text-[#FF7600]">Contact Us</Link>
+                        <Link href="/contac-us" className="text-lg hover:text-main">Contact Us</Link>
                     </li>
                 </ul>
                 <Link href="/send-inquiry" className="bg-main  text-center absolute left-0 bottom-0 uppercase text-white w-full py-2 text-lg">

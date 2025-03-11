@@ -393,6 +393,7 @@ export default function MeetTeam() {
                                     </span>
                                 </div>
                                 <p className="text-gray-700 text-base">{member.bio}</p>
+
                                 <div className="mt-4 pt-4 border-t border-gray-100 flex justify-center space-x-4">
                                     <button className="size-9 cursor-pointer flex items-center justify-center rounded-full bg-orange-50 text-orange-500 hover:bg-orange-500 hover:text-white transition-colors duration-300">
                                         <LuFacebook className='size-5' />
@@ -404,6 +405,7 @@ export default function MeetTeam() {
                                         <LuInstagram className='size-5' />
                                     </button>
                                 </div>
+                                
                             </div>
                         </div>
                     ))}

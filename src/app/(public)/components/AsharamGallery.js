@@ -1708,7 +1708,7 @@ const AshramGallery = () => {
         setImages(newImages);
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 1000);
+        }, 1500);
         return () => clearTimeout(timer);
     }, [activeTab]);
 
@@ -1806,16 +1806,18 @@ const AshramGallery = () => {
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [lightboxOpen, currentImageIndex, images.length, infoVisible, isFullscreen, showThumbnails]);
+    }, [lightboxOpen, currentImageIndex, images.length, infoVisible, isFullscreen, showThumbnails])
+
 
     return (
-        <section className="py-12 bg-gradient-to-b from-orange-50 to-white">
+        <section className="py-10 bg-gradient-to-b from-orange-50 to-white">
             <div className="container mx-auto px-4">
-                {/* Tab Navigation */}
+
+                {/* Tabing  Navigation */}
                 <div className="flex justify-center mb-10">
-                    <div className="bg-white rounded-full shadow-md flex flex-wrap justify-center p-1 space-x-1">
+                    <div className="bg-white rounded-full  shadow-md flex flex-wrap justify-center p-1 space-x-1.5">
                         <button
-                            className={`px-6 py-2.5 rounded-full transition-all duration-300 ${activeTab === 'ashram'
+                            className={`px-6 lg:py-2.5 p-2 cursor-pointer rounded-full transition-all duration-300 ${activeTab === 'ashram'
                                 ? 'bg-orange-500 text-white shadow-md'
                                 : 'text-gray-700 hover:bg-orange-100'
                                 }`}
@@ -1824,7 +1826,7 @@ const AshramGallery = () => {
                             Ashram
                         </button>
                         <button
-                            className={`px-6 py-2.5 rounded-full transition-all duration-300 ${activeTab === 'ganga'
+                            className={`px-6 lg:py-2.5 p-2 cursor-pointer rounded-full transition-all duration-300 ${activeTab === 'ganga'
                                 ? 'bg-orange-500 text-white shadow-md'
                                 : 'text-gray-700 hover:bg-orange-100'
                                 }`}
@@ -1833,7 +1835,7 @@ const AshramGallery = () => {
                             Ganga River
                         </button>
                         <button
-                            className={`px-6 py-2.5 rounded-full transition-all duration-300 ${activeTab === 'accommodations'
+                            className={`px-6 lg:py-2.5 p-2 cursor-pointer rounded-full transition-all duration-300 ${activeTab === 'accommodations'
                                 ? 'bg-orange-500 text-white shadow-md'
                                 : 'text-gray-700 hover:bg-orange-100'
                                 }`}
@@ -2062,7 +2064,7 @@ const AshramGallery = () => {
                                                             handleShare();
                                                         }}
                                                     >
-                                                        <Share size={16} /> Share 
+                                                        <Share size={16} /> Share
                                                     </button>
                                                     <button
                                                         className="px-3 py-1.5 rounded bg-orange-500/20 hover:bg-orange-500/40 text-orange-200 text-sm font-medium transition-colors flex items-center gap-1"

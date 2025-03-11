@@ -193,7 +193,7 @@ import { LuMapPin } from "react-icons/lu";
 import { FaOm } from "react-icons/fa6";
 import { GoMail } from "react-icons/go";
 import Link from 'next/link';
-
+import Image from 'next/image'
 
 const AshramFooter = () => {
     return (
@@ -203,8 +203,14 @@ const AshramFooter = () => {
                 {/* Top Section with Decorative Element */}
                 <div className="flex justify-center mb-8">
                     <div className="h-0.5 w-24 bg-orange-400"></div>
-                    <div className="mx-4 -mt-4">
-                        <FaOm className="text-orange-600 text-4xl" />
+                    <div className="mx-4 -mt-6">
+                        <Image
+                            src="/assets/image/logo1.png"
+                            width={500}
+                            height={100}
+                            alt="Picture of the author"
+                            className='w-10'
+                        />
                     </div>
                     <div className="h-0.5 w-24 bg-orange-400"></div>
                 </div>
@@ -238,18 +244,17 @@ const AshramFooter = () => {
                     {/* Column 2: Quick Links */}
                     <div className="flex flex-col">
                         <h3 className="text-xl font-semibold mb-6 text-orange-800 relative">
-                            <span className="relative z-10">Explore</span>
+                            <span className="relative z-10 ">Explore</span>
                             <span className="absolute bottom-0 left-0 w-full h-2 bg-orange-100 -z-1"></span>
                         </h3>
                         <div className="grid md:grid-cols-2 gap-x-8 gap-y-2 text-prime">
-                            <a href="#" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Home</a>
+                            <Link href="/" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Home</Link>
                             <Link href="/about-us" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">About Us</Link>
-                            <Link href="/rooms" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Ashram</Link>
-                            <a href="#" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Rooms</a>
-                            <a href="#" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Amenities</a>
-                            <a href="#" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Contact</a>
-                            <a href="#" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Gallery</a>
-                            <a href="#" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Events</a>
+                            <Link href="/about-ashram" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">About Ashram</Link>
+                            <Link href="/rooms" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Rooms</Link>
+                            <Link href="/amenities" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Amenities</Link>
+                            <Link href="/contac-us" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Contact</Link>
+                            <Link href="/gallery" className="hover:text-orange-700 transition-all duration-200 hover:translate-x-2">Gallery</Link>
                         </div>
                     </div>
 
