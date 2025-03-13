@@ -1,0 +1,116 @@
+// roomsData.js  (in the same directory as YourBookingDetail.js, or adjust the import)
+
+export const roomsData = [
+    {
+        id: 1,
+        name: "Economy GowSeva",
+        details: "Ashram Non AC Rooms",
+        description: "Comfortable room to stay and enjoy the premine facilities. Both a bicycle rental service and a car rental service are available",
+        price: 1200,
+        images: [
+            "/assets/image/room1.jpg",
+            "/assets/image/room2.jpg",
+            "/assets/image/room3.jpg",
+        ],
+        facilities: {
+            wifi: true,
+            bath: true,
+            room: true,
+        },
+        members: 2,
+    },
+    {
+        id: 2,
+        name: "Normal GowSeva",
+        details: "Ashram Non AC Rooms",
+        description: "Non-Ac rooms. swaminarayan ashram is 4.1km from the Yog Nagari Rishikesh railway station, as well as easy to get transport for station",
+        price: 1500,
+        images: [
+            "/assets/image/room4.jpg",
+            "/assets/image/room5.jpg",
+            "/assets/image/room6.jpg",
+        ],
+        facilities: {
+            wifi: true,
+            bath: true,
+            room: true,
+        },
+        members: 3,
+    },
+    {
+        id: 3,
+        name: "Semi Deluxe Brahmbhoj",
+        details: "Ashram AC Room",
+        description: "The daily breakfast offers continental or vegetarian options you have selected. Hotwater is available is bathroom.",
+        price: 2100,
+        images: [
+            "/assets/image/room7.jpg",
+            "/assets/image/room8.jpg",
+            "/assets/image/room9.jpg",
+        ],
+        facilities: {
+            wifi: true,
+            bath: true,
+            room: true,
+            air: true,
+        },
+        members: 3,
+    },
+    {
+        id: 4,
+        name: "VidhyaDaan [Premium Room ] 2",
+        details: "Ashram AC Room",
+        description: "Experience spiritual tranquility in our premium VidhyaDaan AC accommodation, designed for devotees seeking comfort during their sacred journey.",
+        price: 2400,
+        images: [
+            "/assets/image/blue-room.jpg",
+            "/assets/image/room8.jpg",
+        ],
+        facilities: {
+            wifi: true,
+            bath: true,
+            room: true,
+            air: true,
+        },
+        members: 3,
+    },
+    {
+        id: 5,
+        name: "AannaDan [Family Room) 4",
+        details: "Ashram AC Room",
+        description: "The AannaDan Family Room provides spacious accommodations ideal for families or small groups seeking a peaceful spiritual retreat together.",
+        price: 3600,
+        images: [
+            "/assets/image/red-room.jpg",
+            "/assets/image/tworoom.jpg",
+            "/assets/image/dubbleblue.jpg",
+            "/assets/image/red-blue.jpg",
+        ],
+        facilities: {
+            wifi: true,
+            bath: true,
+            room: true,
+            air: true,
+        },
+        members: 5,
+    },
+    {
+        id: 6,
+        name: "Aarti Donation 2/4",
+        details: "Ashram AC Room",
+        description: "The Aarti Donation Room offers premium accommodations for devotees who wish to contribute to the sacred evening ritual tradition.",
+        price: 4500,
+        images: [
+            "/assets/image/aarti-room.jpg",
+            "/assets/image/red-lazarus.jpg",
+            "/assets/image/blue-lazarus.jpg",
+            "/assets/image/red-blue.jpg",
+        ],
+        facilities: {
+            wifi: true,
+            bath: true,
+            air: true,
+        },
+        members: 5,
+    },
+];

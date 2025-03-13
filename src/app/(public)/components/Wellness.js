@@ -346,7 +346,8 @@ const WellnessCards = () => {
                             className={`flex flex-col md:flex-row items-center bg-white shadow-lg rounded-xl overflow-hidden ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
                         >
                             {/* Image */}
-                            <div className="relative w-full md:w-2/5 h-72 overflow-hidden">
+                            <div className="relative w-full md:w-2/5 h-72
+                             overflow-hidden">
                                 <Image
                                     src={card.imageSrc}
                                     alt={card.title}

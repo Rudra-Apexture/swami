@@ -6,7 +6,7 @@ import { DayPicker } from "react-day-picker"
 import { cn } from "@/app/lib/utils"
 import { buttonVariants } from "./button"
 
-function  Calendar({
+function Calendar({
   className,
   classNames,
   showOutsideDays = true,

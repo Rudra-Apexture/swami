@@ -1923,10 +1923,506 @@
 // export default HeroSection;
 
 
+// "use client";
+// import { useState, useRef, useEffect, Children } from "react";
+// import { DatePickerWithRange } from "../../components/DatePickerWithRange.js";
+// import CustomDropdown from "./Dropdown.js";
+
+// const HeroSection = () => {
+//     const [dateRange, setDateRange] = useState(null);
+//     const [rooms, setRooms] = useState(1); // Number of rooms
+//     const [guests, setGuests] = useState([
+//         { adults: 2, children: 0 }, // Default for 1 room
+//     ]);
+//     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+//     const dropdownRef = useRef(null);
+
+//     // Data for the dropdown menus
+//     const roomOptions = [1, 2, 3, 4, 5, 6, 8, 9, 10].map((num) => ({
+//         value: num,
+//         label: `${num} Room${num > 1 ? "s" : ""}`,
+//     }));
+//     const adultOptions = [1, 2, 3, 4, 5].map((num) => ({
+//         value: num,
+//         label: `${num} Adult${num > 1 ? "s" : ""}`,
+//     }));
+//     const childOptions = [0, 1, 2, 3, 4, 5].map((num) => ({
+//         value: num,
+//         label: `${num} Child${num !== 1 ? "ren" : ""}`,
+//     }));
+
+//     // State for react-select.  Initialize with options!
+//     const [selectedRoom, setSelectedRoom] = useState(roomOptions[0]);
+//     const [selectedGuest, setSelectedGuest] = useState(); // Default to 0 children
+
+//     // Handle room count change (from the Number of Rooms dropdown)
+//     const handleRoomChange = (roomOption) => {
+//         const newRoomCount = roomOption.value;
+//         setSelectedRoom(roomOption);
+
+//         // Update the `guests` state to match the new room count
+//         setGuests((prevGuests) => {
+//             const newGuests = [...prevGuests];
+//             while (newGuests.length < newRoomCount) {
+//                 newGuests.push({ adults: 2, children: 0 }); // Default guest count
+//             }
+//             newGuests.length = newRoomCount; // Truncate if necessary
+//             return newGuests;
+//         });
+//     };
+
+//     // Handle changes in the Adults or Children dropdowns for a specific room
+//     const handleGuestChange = (roomIndex, type, guestOption) => {
+//         setGuests((prevGuests) => {
+//             const newGuests = [...prevGuests];
+//             newGuests[roomIndex] = {
+//                 ...newGuests[roomIndex],
+//                 [type]: guestOption.value,
+//             };
+//             return newGuests;
+//         });
+//     };
+
+
+//     const handleDateRangeChange = (newDateRange) => {
+//         setDateRange(newDateRange);
+//     };
+
+
+//     // Close the dropdown if clicked outside
+//     useEffect(() => {
+//         const handleClickOutside = (event) => {
+//             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+//                 setIsDropdownOpen(false);
+//             }
+//         };
+
+//         document.addEventListener("mousedown", handleClickOutside);
+
+//         return () => {
+//             document.removeEventListener("mousedown", handleClickOutside);
+//         };
+//     }, [dropdownRef]);  // Important: Add dropdownRef as a dependency
+
+//     // Calculate total number of guests (sum of adults + children across all rooms)
+//     const totalGuests = guests.reduce((sum, guest) => sum + guest.adults + guest.children, 0);
+
+//     // Calculate total number of adults
+//     const totalAdults = guests.reduce((sum, guest) => sum + guest.adults, 0);
+
+//     // Calculate total number of children
+//     const totalChildren = guests.reduce((sum, guest) => sum + guest.children, 0);
+
+//     return (
+//         <div className="relative w-full min-h-screen flex items-center justify-center bg-[#FDF5E6] lg:py-28 py-16">
+//             {/* Main Content Container */}
+//             <div className="relative z-10 w-full max-w-5xl grid lg:grid-cols-2 gap-10 items-center">
+//                 {/* Left Side - Welcome Text */}
+//                 <div className="px-4">
+//                     <div className="lg:text-left text-center space-y-5">
+//                         <div className="inline-block md:space-y-6 space-y-4">
+//                             <h2 className="text-xl font-bold text-[#FF7600]">Welcome to</h2>
+//                             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+//                                 Sahajanand
+//                                 <span className="block text-[#FF7600]">Wellness</span>
+//                             </h1>
+//                         </div>
+//                         <p className="text-gray-700 text-lg font-medium leading-relaxed">
+//                             Experience tranquility and rejuvenation at our sacred ashram.
+//                             Begin your journey towards inner peace and holistic wellness.
+//                         </p>
+//                         <div className="flex gap-4 items-center lg:justify-start justify-center">
+//                             <div className="h-1 lg:w-20 w-10 bg-orange-500"></div>
+//                             <span className="font-medium italic">"Wellness - The Best Gift to Yourself"</span>
+//                         </div>
+//                     </div>
+//                 </div>
+
+//                 {/* Right Side - Booking Form */}
+//                 <div className="px-4">
+//                     <div className="bg-white rounded-xl border borer-black md:p-6 p-3 text-black">
+//                         <div className="space-y-6">
+//                             {/*      */}
+//                             <div>
+//                                 <label className="block text-gray-700 font-medium mb-2">
+//                                     Select Your Stay Duration
+//                                 </label>
+//                                 <DatePickerWithRange onChange={handleDateRangeChange} />
+//                             </div>
+
+//                             {/* Night Shows */}
+//                             <div>
+//                                 <label className="block text-gray-700 font-medium mb-2">
+//                                     Night :
+//                                 </label>    
+//                             </div>
+
+//                             <div>
+//                                 {/* Guest Selection */}
+//                                 <label className="block text-gray-700 font-medium mb-2">
+//                                     Guest Information
+//                                 </label>
+//                                 <div
+//                                     className="border border-gray-300 p-2.5 z-20 rounded-md cursor-pointer hover:bg-[#f5f5f5] transition"
+//                                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+//                                 >
+//                                     <div className="flex gap-4 items-center">
+//                                         <div className="flex items-center gap-2">
+//                                             <span className="size-6 rounded-full bg-[#FF7600] text-white flex items-center justify-center">
+//                                                 {selectedRoom.value}
+//                                             </span>
+//                                             <span className="text-prime font-medium">Room</span>
+//                                         </div>
+//                                         <div className="flex items-center gap-2">
+//                                             <span className="size-6 rounded-full bg-[#FF7600] text-white flex items-center justify-center">
+//                                                 {totalAdults}
+//                                             </span>
+//                                             <span className="text-prime font-medium">Adults</span>
+//                                         </div>
+//                                         <div className="flex items-center gap-2">
+//                                             <span className="size-6 rounded-full bg-[#FF7600] text-white flex items-center justify-center">
+//                                                 {totalChildren}
+//                                             </span>
+//                                             <span className="text-prime font-medium">Children</span>
+//                                         </div>
+//                                     </div>
+//                                 </div>
+
+//                                 {/* Dropdown Panel */}
+//                                 <div
+//                                     ref={dropdownRef} // Add the ref here
+//                                     className={`transform transition-all duration-300 bg-white ease-in-out origin-top absolute shadow-md rounded-md w-5/6 lg:w-2/5
+//                                         ${isDropdownOpen ? 'opacity-100 visible z-30' : 'opacity-0 invisible'}
+//                                     `}
+//                                     style={{ zIndex: 50 }}
+//                                 >
+//                                     <div className="mt-3 p-2.5 border border-gray-300 rounded-md bg-white" >
+//                                         <div className="space-y-1.5">
+//                                             {/* Number of Rooms Dropdown */}
+//                                             <div>
+//                                                 <label className="block text-gray-700 font-medium mb-1 text-sm">Number of Rooms</label>
+//                                                 <CustomDropdown
+//                                                     options={roomOptions}
+//                                                     value={selectedRoom}
+//                                                     onChange={handleRoomChange}
+//                                                 />
+//                                             </div>
+
+
+//                                             {/* Rooms Section*/}
+//                                             {guests.map((guest, roomIndex) => (
+//                                                 <div key={roomIndex} className="flex justify-between items-center gap-2">
+//                                                     <span className="block text-gray-700 font-medium mb-1 text-sm">
+//                                                         Room {roomIndex + 1}
+//                                                     </span>
+//                                                     <div className="flex gap-4">
+//                                                         {/* Adults Dropdown */}
+//                                                         <div>
+//                                                             <label className="block text-gray-600 mb-1 text-xs">Adults</label>
+//                                                             <CustomDropdown
+//                                                                 options={adultOptions}
+//                                                                 value={adultOptions.find(opt => opt.value === guest.adults)} // Find the right option
+//                                                                 onChange={(adultOption) => handleGuestChange(roomIndex, "adults", adultOption)}
+//                                                             />
+//                                                         </div>
+
+//                                                         {/* Children Dropdown */}
+//                                                         <div>
+//                                                             <label className="block text-gray-600 mb-1 text-xs">Children</label>
+//                                                             <CustomDropdown
+//                                                                 options={childOptions}
+//                                                                 value={childOptions.find(opt => opt.value === guest.children)} // Find the right option
+//                                                                 onChange={(childOption) => handleGuestChange(roomIndex, "children", childOption)}
+//                                                             />
+//                                                         </div>
+//                                                     </div>
+//                                                 </div>
+//                                             ))}
+//                                         </div>
+//                                     </div>
+//                                 </div>
+//                             </div>
+
+//                             {/* Book Button */}
+//                             <button className="w-full bg-orange-500 text-white py-4 rounded-xl font-medium text-lg shadow-lg hover:bg-orange-600 transform transition hover:-translate-y-1 focus:ring-4 focus:ring-orange-200">
+//                                 Book Now
+//                             </button>
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default HeroSection;
+
+// "use client";
+// import { useState, useRef, useEffect } from "react";
+// import { DatePickerWithRange } from "../../components/DatePickerWithRange.js";
+// import CustomDropdown from "./Dropdown.js";
+// import Link from "next/link.js";
+
+// const HeroSection = () => {
+//     const [dateRange, setDateRange] = useState(null);
+//     const [rooms, setRooms] = useState(1); // Number of rooms
+//     const [guests, setGuests] = useState([
+//         { adults: 2, children: 0 }, // Default for 1 room
+//     ]);
+//     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+//     const dropdownRef = useRef(null);
+//     const [numberOfNights, setNumberOfNights] = useState(0); // State for number of nights
+
+
+//     // Data for the dropdown menus
+//     const roomOptions = [1, 2, 3, 4, 5, 6, 8, 9, 10].map((num) => ({
+//         value: num,
+//         label: `${num} Room${num > 1 ? "s" : ""}`,
+//     }));
+//     const adultOptions = [1, 2, 3, 4, 5].map((num) => ({
+//         value: num,
+//         label: `${num} Adult${num > 1 ? "s" : ""}`,
+//     }));
+//     const childOptions = [0, 1, 2, 3, 4, 5].map((num) => ({
+//         value: num,
+//         label: `${num} Child${num !== 1 ? "ren" : ""}`,
+//     }));
+
+//     // State for react-select.  Initialize with options!
+//     const [selectedRoom, setSelectedRoom] = useState(roomOptions[0]);
+//     const [selectedGuest, setSelectedGuest] = useState(); // Default to 0 children
+
+//     // Handle room count change (from the Number of Rooms dropdown)
+//     const handleRoomChange = (roomOption) => {
+//         const newRoomCount = roomOption.value;
+//         setSelectedRoom(roomOption);
+
+//         // Update the `guests` state to match the new room count
+//         setGuests((prevGuests) => {
+//             const newGuests = [...prevGuests];
+//             while (newGuests.length < newRoomCount) {
+//                 newGuests.push({ adults: 2, children: 0 }); // Default guest count
+//             }
+//             newGuests.length = newRoomCount; // Truncate if necessary
+//             return newGuests;
+//         });
+//     };
+
+//     // Handle changes in the Adults or Children dropdowns for a specific room
+//     const handleGuestChange = (roomIndex, type, guestOption) => {
+//         setGuests((prevGuests) => {
+//             const newGuests = [...prevGuests];
+//             newGuests[roomIndex] = {
+//                 ...newGuests[roomIndex],
+//                 [type]: guestOption.value,
+//             };
+//             return newGuests;
+//         });
+//     };
+
+
+//     const handleDateRangeChange = (newDateRange) => {
+//         setDateRange(newDateRange);
+
+//         if (newDateRange && newDateRange.from && newDateRange.to) {
+//             // Calculate the difference in days.  Need to handle timezones!
+//             const startDate = new Date(newDateRange.from);
+//             const endDate = new Date(newDateRange.to);
+
+//             // Set the time to midnight to ensure whole-day differences.
+//             startDate.setHours(0, 0, 0, 0);
+//             endDate.setHours(0, 0, 0, 0);
+
+//             const diffInTime = endDate.getTime() - startDate.getTime();
+//             const diffInDays = diffInTime / (1000 * 3600 * 24);
+//             setNumberOfNights(diffInDays);
+//         } else {
+//             setNumberOfNights(0); // Reset if no valid range
+//         }
+//     };
+
+
+//     // Close the dropdown if clicked outside
+//     useEffect(() => {
+//         const handleClickOutside = (event) => {
+//             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+//                 setIsDropdownOpen(false);
+//             }
+//         };
+
+//         document.addEventListener("mousedown", handleClickOutside);
+
+//         return () => {
+//             document.removeEventListener("mousedown", handleClickOutside);
+//         };
+//     }, [dropdownRef]);  // Important: Add dropdownRef as a dependency
+
+//     // Calculate total number of guests (sum of adults + children across all rooms)
+//     const totalGuests = guests.reduce((sum, guest) => sum + guest.adults + guest.children, 0);
+
+//     // Calculate total number of adults
+//     const totalAdults = guests.reduce((sum, guest) => sum + guest.adults, 0);
+
+//     // Calculate total number of children
+//     const totalChildren = guests.reduce((sum, guest) => sum + guest.children, 0);
+
+//     return (
+//         <div className="relative w-full min-h-screen flex items-center justify-center bg-[#FDF5E6] lg:py-28 py-16">
+//             {/* Main Content Container */}
+//             <div className="relative z-10 w-full max-w-5xl grid lg:grid-cols-2 gap-10 items-center">
+//                 {/* Left Side - Welcome Text */}
+//                 <div className="px-4">
+//                     <div className="lg:text-left text-center space-y-5">
+//                         <div className="inline-block md:space-y-6 space-y-4">
+//                             <h2 className="text-xl font-bold text-[#FF7600]">Welcome to</h2>
+//                             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+//                                 Sahajanand
+//                                 <span className="block text-[#FF7600]">Wellness</span>
+//                             </h1>
+//                         </div>
+//                         <p className="text-gray-700 text-lg font-medium leading-relaxed">
+//                             Experience tranquility and rejuvenation at our sacred ashram.
+//                             Begin your journey towards inner peace and holistic wellness.
+//                         </p>
+//                         <div className="flex gap-4 items-center lg:justify-start justify-center">
+//                             <div className="h-1 lg:w-20 w-10 bg-orange-500"></div>
+//                             <span className="font-medium italic">"Wellness - The Best Gift to Yourself"</span>
+//                         </div>
+//                     </div>
+//                 </div>
+
+//                 {/* Right Side - Booking Form */}
+//                 <div className="px-4">
+//                     <div className="bg-white rounded-xl border borer-black md:p-6 p-3 text-black">
+//                         <div className="space-y-6">
+//                             {/* Date Selection */}
+//                             <div>
+//                                 <label className="block text-gray-700 font-medium mb-2">
+//                                     Select Your Stay Duration
+//                                 </label>
+//                                 <DatePickerWithRange onChange={handleDateRangeChange} />
+//                             </div>
+
+//                             {/* Night Shows */}
+//                             <div className="flex items-center gap-2">
+//                                 <label className="block text-prime font-medium">
+//                                     Night :
+//                                 </label>
+//                                 <span className="size-6 rounded-full bg-[#FF7600] text-white flex items-center justify-center">
+//                                     {numberOfNights}
+//                                 </span>
+//                             </div>
+
+//                             <div>
+//                                 {/* Guest Selection */}
+//                                 <label className="block text-gray-700 font-medium mb-2">
+//                                     Guest Information
+//                                 </label>
+//                                 <div
+//                                     className="border border-gray-300 p-2.5 z-20 rounded-md cursor-pointer hover:bg-[#f5f5f5] transition"
+//                                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+//                                 >
+//                                     <div className="flex gap-4 items-center">
+//                                         <div className="flex items-center gap-2">
+//                                             <span className="size-6 rounded-full bg-[#FF7600] text-white flex items-center justify-center">
+//                                                 {selectedRoom.value}
+//                                             </span>
+//                                             <span className="text-prime font-medium">Room</span>
+//                                         </div>
+//                                         <div className="flex items-center gap-2">
+//                                             <span className="size-6 rounded-full bg-[#FF7600] text-white flex items-center justify-center">
+//                                                 {totalAdults}
+//                                             </span>
+//                                             <span className="text-prime font-medium">Adults</span>
+//                                         </div>
+//                                         <div className="flex items-center gap-2">
+//                                             <span className="size-6 rounded-full bg-[#FF7600] text-white flex items-center justify-center">
+//                                                 {totalChildren}
+//                                             </span>
+//                                             <span className="text-prime font-medium">Children</span>
+//                                         </div>
+//                                     </div>
+//                                 </div>
+
+//                                 {/* Dropdown Panel */}
+//                                 <div
+//                                     ref={dropdownRef} // Add the ref here
+//                                     className={`transform transition-all duration-300 bg-white ease-in-out origin-top absolute shadow-md rounded-md w-5/6 lg:w-2/5
+//                                         ${isDropdownOpen ? 'opacity-100 visible z-30' : 'opacity-0 invisible'}
+//                                     `}
+//                                     style={{ zIndex: 50 }}
+//                                 >
+//                                     <div className="mt-3 p-2.5 border border-gray-300 rounded-md bg-white" >
+//                                         <div className="space-y-1.5">
+//                                             {/* Number of Rooms Dropdown */}
+//                                             <div>
+//                                                 <label className="block text-gray-700 font-medium mb-1 text-sm">Number of Rooms</label>
+//                                                 <CustomDropdown
+//                                                     options={roomOptions}
+//                                                     value={selectedRoom}
+//                                                     onChange={handleRoomChange}
+//                                                 />
+//                                             </div>
+
+
+//                                             {/* Rooms Section*/}
+//                                             {guests.map((guest, roomIndex) => (
+//                                                 <div key={roomIndex} className="flex justify-between items-center gap-2">
+//                                                     <span className="block text-gray-700 font-medium mb-1 text-sm">
+//                                                         Room {roomIndex + 1}
+//                                                     </span>
+//                                                     <div className="flex gap-4">
+//                                                         {/* Adults Dropdown */}
+//                                                         <div>
+//                                                             <label className="block text-gray-600 mb-1 text-xs">Adults</label>
+//                                                             <CustomDropdown
+//                                                                 options={adultOptions}
+//                                                                 value={adultOptions.find(opt => opt.value === guest.adults)} // Find the right option
+//                                                                 onChange={(adultOption) => handleGuestChange(roomIndex, "adults", adultOption)}
+//                                                             />
+//                                                         </div>
+
+//                                                         {/* Children Dropdown */}
+//                                                         <div>
+//                                                             <label className="block text-gray-600 mb-1 text-xs">Children</label>
+//                                                             <CustomDropdown
+//                                                                 options={childOptions}
+//                                                                 value={childOptions.find(opt => opt.value === guest.children)} // Find the right option
+//                                                                 onChange={(childOption) => handleGuestChange(roomIndex, "children", childOption)}
+//                                                             />
+//                                                         </div>
+//                                                     </div>
+//                                                 </div>
+//                                             ))}
+//                                         </div>
+//                                     </div>
+//                                 </div>
+//                             </div>
+
+//                             {/* Book Button */}
+//                             <Link href='/your-booking-detail' >
+//                                 <button className="w-full bg-orange-500 text-white py-4 rounded-md font-medium text-lg capitalize">
+//                                     Book Now
+//                                 </button>
+//                             </Link>
+
+//                         </div>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default HeroSection;
+
+// pages/index.js (Your Home/Booking Page - modify your existing page)
 "use client";
-import { useState, useRef, useEffect, Children } from "react";
-import { DatePickerWithRange } from "../../components/DatePickerWithRange.js";
-import CustomDropdown from "./Dropdown.js";
+
+import { useState, useRef, useEffect } from "react";
+import { DatePickerWithRange } from "../../components/DatePickerWithRange.js"; //Correct Path
+import CustomDropdown from "./Dropdown.js"; //Correct Path
+import { useRouter } from 'next/navigation'; // Import useRouter
 
 const HeroSection = () => {
     const [dateRange, setDateRange] = useState(null);
@@ -1936,6 +2432,9 @@ const HeroSection = () => {
     ]);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
+    const [numberOfNights, setNumberOfNights] = useState(0); // State for number of nights
+
+    const router = useRouter(); // Use useRouter hook
 
     // Data for the dropdown menus
     const roomOptions = [1, 2, 3, 4, 5, 6, 8, 9, 10].map((num) => ({
@@ -1986,6 +2485,22 @@ const HeroSection = () => {
 
     const handleDateRangeChange = (newDateRange) => {
         setDateRange(newDateRange);
+
+        if (newDateRange && newDateRange.from && newDateRange.to) {
+            // Calculate the difference in days.  Need to handle timezones!
+            const startDate = new Date(newDateRange.from);
+            const endDate = new Date(newDateRange.to);
+
+            // Set the time to midnight to ensure whole-day differences.
+            startDate.setHours(0, 0, 0, 0);
+            endDate.setHours(0, 0, 0, 0);
+
+            const diffInTime = endDate.getTime() - startDate.getTime();
+            const diffInDays = diffInTime / (1000 * 3600 * 24);
+            setNumberOfNights(diffInDays);
+        } else {
+            setNumberOfNights(0); // Reset if no valid range
+        }
     };
 
 
@@ -2012,6 +2527,22 @@ const HeroSection = () => {
 
     // Calculate total number of children
     const totalChildren = guests.reduce((sum, guest) => sum + guest.children, 0);
+
+    const handleBookNow = () => {
+        // 1. Store the booking data
+        const bookingData = {
+            date: dateRange,
+            numberOfNights,
+            totalAdults,
+            totalChildren,
+            rooms: selectedRoom.value,
+            guests,
+        };
+        localStorage.setItem('bookingData', JSON.stringify(bookingData));
+
+        // 2. Redirect to the booking details page
+        router.push('/your-booking-detail');
+    };
 
     return (
         <div className="relative w-full min-h-screen flex items-center justify-center bg-[#FDF5E6] lg:py-28 py-16">
@@ -2048,6 +2579,16 @@ const HeroSection = () => {
                                     Select Your Stay Duration
                                 </label>
                                 <DatePickerWithRange onChange={handleDateRangeChange} />
+                            </div>
+
+                            {/* Night Shows */}
+                            <div className="flex gap-2">
+                                <label className="block text-gray-700 font-medium mb-2">
+                                    Night :
+                                </label>
+                                <span className="size-6 rounded-full bg-[#FF7600] text-white flex items-center justify-center">
+                                    {numberOfNights}
+                                </span>
                             </div>
 
                             <div>
@@ -2137,7 +2678,11 @@ const HeroSection = () => {
                             </div>
 
                             {/* Book Button */}
-                            <button className="w-full bg-orange-500 text-white py-4 rounded-xl font-medium text-lg shadow-lg hover:bg-orange-600 transform transition hover:-translate-y-1 focus:ring-4 focus:ring-orange-200">
+                            {/* Book Button */}
+                            <button
+                                onClick={handleBookNow} // Call the book now handler
+                                className="w-full bg-orange-500 text-white py-4 rounded-xl font-medium text-lg shadow-lg hover:bg-orange-600 transform transition hover:-translate-y-1 focus:ring-4 focus:ring-orange-200"
+                            >
                                 Book Now
                             </button>
                         </div>
@@ -2149,3 +2694,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+

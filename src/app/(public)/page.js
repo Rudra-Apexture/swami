@@ -12,7 +12,6 @@ import Roomsection from './components/Roomsection';
 // Home_Pages
 export default function Home() {
 
-
   return (
     <>
       <HeroSection />
