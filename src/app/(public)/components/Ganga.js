@@ -39,7 +39,7 @@ const GangaSection = () => {
                     <div className="absolute inset-0 bg-linear-to-b from-main via-white to-white rounded-2xl transform md:rotate-6 rotate-4 transition-all duration-300"></div>
                     <div className="relative overflow-hidden rounded-2xl">
                         <Image
-                            src="/assets/image/aarti.webp"
+                            src="/assets/image/ganga-ghat.jpg"
                             alt="Ganga Arti at Sahajanand Wellness Trust"
                             width={600}
                             height={450}

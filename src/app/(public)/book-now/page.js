@@ -228,9 +228,210 @@
 
 // export default BookNowPage;
 
-"use client";
+// "use client";
+// import React, { useEffect, useState, useRef } from 'react';
+// import { useRouter } from 'next/navigation';
+// import { format } from 'date-fns';
+// import { FaArrowRightToBracket } from "react-icons/fa6";
+// import { FaCalendar } from "react-icons/fa6";
+// import { IoIosMan } from "react-icons/io";
+// import Options from '../components/book-now';
+// import ProgressBar from '../../components/ProgressBar';
 
-import React, { useEffect, useState, useRef } from 'react';
+// const BookNowPage = () => {
+//     const router = useRouter();
+//     const [selectedRoom, setSelectedRoom] = useState(null);
+//     const [bookingData, setBookingData] = useState(null);
+//     const [progressWidth, setProgressWidth] = useState(75); // Start at 75
+//     const [currentCheckpoint, setCurrentCheckpoint] = useState(2); // Options
+//     const [loading, setLoading] = useState(true);
+//     const progressRef = useRef(null);
+//     const [optionsVisible, setOptionsVisible] = useState(true);
+//     const initialCheckpoint = 2;
+
+//     useEffect(() => {
+//         const roomData = localStorage.getItem('selectedRoom');
+//         const bookingInfo = localStorage.getItem('bookingData');
+
+//         if (roomData && bookingInfo) {
+//             setSelectedRoom(JSON.parse(roomData));
+//             setBookingData(JSON.parse(bookingInfo));
+//             setLoading(false);
+//         } else {
+//             router.push('/'); // Redirect if data is missing
+//         }
+//     }, [router]);
+
+//     if (loading) {
+//         return (
+//             <div className='flex justify-center items-center h-screen'>
+//                 <div className="loader lg:size-12 size-10 rounded-full border-4 border-orange-200 border-t-orange-500 animate-spin"></div>
+//             </div>
+//         );
+//     }
+
+//     const formattedCheckInDate = bookingData.date?.from ? format(new Date(bookingData.date.from), 'dd/MM/yyyy') : '';
+//     const formattedCheckOutDate = bookingData.date?.to ? format(new Date(bookingData.date.to), 'dd/MM/yyyy') : '';
+
+//     return (
+//         <div className="lg:p-8 p-4">
+//             <h1 className="lg:text-3xl text-2xl text-center font-medium mb-10">Your Booking <span className='bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent'>
+//                 Options
+//             </span> </h1>
+
+//             <ProgressBar progressWidth={progressWidth} currentCheckpoint={currentCheckpoint} />
+
+//             <div className="bg-white flex lg:justify-between items-center p-4 mt-14 rounded-lg border border-gray-100 shadow-md">
+//                 <div className="md:flex gap-8 grid grid-cols-2">
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Check-in</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <FaArrowRightToBracket className='lg:size-5 size-4 text-main' />
+//                             {formattedCheckInDate}</p>
+//                     </div>
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Check-out</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <FaArrowRightToBracket className='lg:size-5 size-4 text-main' />
+//                             {formattedCheckOutDate}</p>
+//                     </div>
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Nights</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <FaCalendar className='lg:size-5 size-4 text-main' />
+//                             {bookingData.numberOfNights}</p>
+//                     </div>
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Adults</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <IoIosMan className='lg:size-5 size-4 text-main' />
+//                             {bookingData.totalAdults}</p>
+//                     </div>
+//                 </div>
+//                 <button
+//                     className="px-4 py-2 hidden md:block bg-orange-500 text-white rounded-md"
+//                     onClick={() => router.back()}
+//                 >
+//                     Change Dates
+//                 </button>
+//             </div>
+
+//             <div className={`options-container ${optionsVisible ? 'options-visible' : ''}`}>
+//                 <Options selectedRoom={selectedRoom} bookingData={bookingData} />
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default BookNowPage;
+
+// "use client";
+// import React, { useEffect, useState, useRef } from 'react';
+// import { useRouter } from 'next/navigation';
+// import { format } from 'date-fns';
+// import { FaArrowRightToBracket } from "react-icons/fa6";
+// import { FaCalendar } from "react-icons/fa6";
+// import { IoIosMan } from "react-icons/io";
+// import Options from '../components/book-now';
+// import ProgressBar from '../../components/ProgressBar';
+
+// const BookNowPage = () => {
+//     const router = useRouter();
+//     const [selectedRoom, setSelectedRoom] = useState(null);
+//     const [bookingData, setBookingData] = useState(null);
+//     const [progressWidth, setProgressWidth] = useState(75); // Start at 75
+//     const [currentCheckpoint, setCurrentCheckpoint] = useState(2); // Options
+//     const [loading, setLoading] = useState(true);
+//     const progressRef = useRef(null);
+//     const [optionsVisible, setOptionsVisible] = useState(true);
+//     const initialCheckpoint = 2;
+
+//     useEffect(() => {
+//         const roomData = localStorage.getItem('selectedRoom');
+//         const bookingInfo = localStorage.getItem('bookingData');
+
+//         if (roomData && bookingInfo) {
+//             // Simulate a delay for a smoother transition (optional)
+//             setTimeout(() => {
+//                 setSelectedRoom(JSON.parse(roomData));
+//                 setBookingData(JSON.parse(bookingInfo));
+//                 setLoading(false);
+//             }, 500); // Adjust the delay (in milliseconds) as needed
+//         } else {
+//             router.push('/'); // Redirect if data is missing
+//         }
+//     }, [router]);
+
+//     if (loading) {
+//         return (
+//             <div className='flex justify-center items-center h-screen bg-gray-100'>
+//                 <div className="animate-pulse flex space-x-3">
+//                     <div className="h-8 w-8 bg-orange-400 rounded-full"></div>
+//                     <div className="h-8 w-8 bg-orange-400 rounded-full"></div>
+//                     <div className="h-8 w-8 bg-orange-400 rounded-full"></div>
+//                 </div>
+//             </div>
+//         );
+//     }
+
+//     const formattedCheckInDate = bookingData.date?.from ? format(new Date(bookingData.date.from), 'dd/MM/yyyy') : '';
+//     const formattedCheckOutDate = bookingData.date?.to ? format(new Date(bookingData.date.to), 'dd/MM/yyyy') : '';
+
+//     return (
+//         <div className="lg:p-8 p-4">
+//             <h1 className="lg:text-3xl text-2xl text-center font-medium mb-10">Your Booking <span className='bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent'>
+//                 Options
+//             </span> </h1>
+
+//             <ProgressBar progressWidth={progressWidth} currentCheckpoint={currentCheckpoint} />
+
+//             <div className="bg-white flex lg:justify-between items-center p-4 mt-14 rounded-lg border border-gray-100 shadow-md">
+//                 <div className="md:flex gap-8 grid grid-cols-2">
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Check-in</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <FaArrowRightToBracket className='lg:size-5 size-4 text-main' />
+//                             {formattedCheckInDate}</p>
+//                     </div>
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Check-out</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <FaArrowRightToBracket className='lg:size-5 size-4 text-main' />
+//                             {formattedCheckOutDate}</p>
+//                     </div>
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Nights</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <FaCalendar className='lg:size-5 size-4 text-main' />
+//                             {bookingData.numberOfNights}</p>
+//                     </div>
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Adults</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <IoIosMan className='lg:size-5 size-4 text-main' />
+//                             {bookingData.totalAdults}</p>
+//                     </div>
+//                 </div>
+//                 <button
+//                     className="px-4 py-2 hidden md:block bg-orange-500 text-white rounded-md"
+//                     onClick={() => router.back()}
+//                 >
+//                     Change Dates
+//                 </button>
+//             </div>
+
+//             <div className={`options-container ${optionsVisible ? 'options-visible' : ''}`}>
+//                 <Options selectedRoom={selectedRoom} bookingData={bookingData} />
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default BookNowPage;
+
+
+"use client";
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { format } from 'date-fns';
 import { FaArrowRightToBracket } from "react-icons/fa6";
@@ -239,45 +440,53 @@ import { IoIosMan } from "react-icons/io";
 import Options from '../components/book-now';
 import ProgressBar from '../../components/ProgressBar';
 
-
 const BookNowPage = () => {
     const router = useRouter();
     const [selectedRoom, setSelectedRoom] = useState(null);
     const [bookingData, setBookingData] = useState(null);
-    const [progressWidth, setProgressWidth] = useState(75); // Start at 75
-    const [currentCheckpoint, setCurrentCheckpoint] = useState(2); // Options
+    const [progressWidth, setProgressWidth] = useState(75);
+    const [currentCheckpoint, setCurrentCheckpoint] = useState(2);
     const [loading, setLoading] = useState(true);
-    const progressRef = useRef(null);
-    const [optionsVisible, setOptionsVisible] = useState(true);
-    const initialCheckpoint = 2;
 
     useEffect(() => {
-        const roomData = localStorage.getItem('selectedRoom');
-        const bookingInfo = localStorage.getItem('bookingData');
+        const fetchData = async () => {
+            const roomData = localStorage.getItem('selectedRoom');
+            const bookingInfo = localStorage.getItem('bookingData');
 
-        if (roomData && bookingInfo) {
-            setSelectedRoom(JSON.parse(roomData));
-            setBookingData(JSON.parse(bookingInfo));
-            setLoading(false);
-        } else {
-            router.push('/'); // Redirect if data is missing
-        }
+            if (roomData && bookingInfo) {
+                try {
+                    setSelectedRoom(JSON.parse(roomData));
+                    setBookingData(JSON.parse(bookingInfo));
+                } catch (error) {
+                    console.error("Error parsing data from localStorage:", error);
+                    // Handle parsing error, perhaps redirect or clear storage
+                    localStorage.removeItem('selectedRoom');
+                    localStorage.removeItem('bookingData');
+                    router.push('/'); // Redirect to homepage or error page
+                    return;
+                }
+                setLoading(false);
+            } else {
+                router.push('/'); // Redirect if data is missing
+            }
+        };
+
+        fetchData();
     }, [router]);
 
-    if (loading) {
-        return (
-            <div className='flex justify-center items-center h-screen'>
-                <div className="loader lg:size-12 size-10 rounded-full border-4 border-orange-200 border-t-orange-500 animate-spin"></div>
-            </div>
-        );
+    if (selectedRoom === null || bookingData === null) {
+        return null; // Render nothing or redirect
     }
+
 
     const formattedCheckInDate = bookingData.date?.from ? format(new Date(bookingData.date.from), 'dd/MM/yyyy') : '';
     const formattedCheckOutDate = bookingData.date?.to ? format(new Date(bookingData.date.to), 'dd/MM/yyyy') : '';
 
     return (
         <div className="lg:p-8 p-4">
-            <h1 className="lg:text-3xl text-2xl text-center font-medium mb-10">Your Booking Details</h1>
+            <h1 className="lg:text-3xl text-2xl text-center font-medium mb-10">Your Booking <span className='bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent'>
+                Options
+            </span> </h1>
 
             <ProgressBar progressWidth={progressWidth} currentCheckpoint={currentCheckpoint} />
 
@@ -286,25 +495,25 @@ const BookNowPage = () => {
                     <div>
                         <p className="text-sm text-prime font-medium">Check-in</p>
                         <p className="flex items-center gap-2 mt-2">
-                            <FaArrowRightToBracket className='size-5 text-main' />
+                            <FaArrowRightToBracket className='lg:size-5 size-4 text-main' />
                             {formattedCheckInDate}</p>
                     </div>
                     <div>
                         <p className="text-sm text-prime font-medium">Check-out</p>
                         <p className="flex items-center gap-2 mt-2">
-                            <FaArrowRightToBracket className='size-5 text-main' />
+                            <FaArrowRightToBracket className='lg:size-5 size-4 text-main' />
                             {formattedCheckOutDate}</p>
                     </div>
                     <div>
                         <p className="text-sm text-prime font-medium">Nights</p>
                         <p className="flex items-center gap-2 mt-2">
-                            <FaCalendar className='size-5 text-main' />
+                            <FaCalendar className='lg:size-5 size-4 text-main' />
                             {bookingData.numberOfNights}</p>
                     </div>
                     <div>
                         <p className="text-sm text-prime font-medium">Adults</p>
                         <p className="flex items-center gap-2 mt-2">
-                            <IoIosMan className='size-5 text-main' />
+                            <IoIosMan className='lg:size-5 size-4 text-main' />
                             {bookingData.totalAdults}</p>
                     </div>
                 </div>
@@ -316,7 +525,7 @@ const BookNowPage = () => {
                 </button>
             </div>
 
-            <div className={`options-container ${optionsVisible ? 'options-visible' : ''}`}>
+            <div className={`options-container`}>
                 <Options selectedRoom={selectedRoom} bookingData={bookingData} />
             </div>
         </div>

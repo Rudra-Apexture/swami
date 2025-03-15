@@ -348,7 +348,7 @@ export default function Header() {
             )}
 
             <div className="container mx-auto">
-                <div className="flex items-center justify-between py-2 lg:py-0 px-4 lg:px-0">
+                <div className="flex items-center justify-between py-2 px-4 lg:px-0">
                     <Link href="/">
                         <Image
                             src="/assets/image/swami.png"
@@ -474,7 +474,7 @@ export default function Header() {
             >
                 <div className="p-3 flex justify-end items-center border-b border-gray-300">
                     <button onClick={toggleMobileMenu} className="text-main rounded p-1">
-                        <FiX  className="size-6" />
+                        <FiX className="size-6" />
                     </button>
                 </div>
 

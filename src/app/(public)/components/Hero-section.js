@@ -2416,7 +2416,7 @@
 
 // export default HeroSection;
 
-// pages/index.js (Your Home/Booking Page - modify your existing page)
+//Herosection.js
 "use client";
 
 import { useState, useRef, useEffect } from "react";
@@ -2433,6 +2433,7 @@ const HeroSection = () => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
     const [numberOfNights, setNumberOfNights] = useState(0); // State for number of nights
+    const [isBooking, setIsBooking] = useState(false); // Loading state for Book Now button
 
     const router = useRouter(); // Use useRouter hook
 
@@ -2482,7 +2483,6 @@ const HeroSection = () => {
         });
     };
 
-
     const handleDateRangeChange = (newDateRange) => {
         setDateRange(newDateRange);
 
@@ -2502,7 +2502,6 @@ const HeroSection = () => {
             setNumberOfNights(0); // Reset if no valid range
         }
     };
-
 
     // Close the dropdown if clicked outside
     useEffect(() => {
@@ -2528,7 +2527,12 @@ const HeroSection = () => {
     // Calculate total number of children
     const totalChildren = guests.reduce((sum, guest) => sum + guest.children, 0);
 
-    const handleBookNow = () => {
+    const handleBookNow = async () => {
+        setIsBooking(true); // Start loading animation
+
+        // Simulate a booking process (replace with your actual booking logic)
+        await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait 1 second
+
         const bookingData = {
             date: dateRange,
             numberOfNights,
@@ -2539,7 +2543,9 @@ const HeroSection = () => {
         };
         localStorage.setItem('bookingData', JSON.stringify(bookingData));
 
-        // 2. Redirect to the booking details page
+        setIsBooking(false); // End loading animation
+
+        // Redirect to the booking details page
         router.push('/your-booking-detail');
     };
 
@@ -2582,7 +2588,7 @@ const HeroSection = () => {
                             {/* Night Shows */}
                             <div className="flex gap-2">
                                 <label className="block text-gray-700 font-medium mb-2">
-                                    Night :
+                                    Night : 
                                 </label>
                                 <span className="size-6 rounded-full bg-main text-white flex items-center justify-center">
                                     {numberOfNights}
@@ -2678,9 +2684,10 @@ const HeroSection = () => {
                             {/* Book Button */}
                             <button
                                 onClick={handleBookNow} // Call the book now handler
-                                className="w-full bg-orange-500 text-white py-4 rounded-md font-medium text-lg"
+                                className={`w-full bg-orange-500 text-white py-4 rounded-md font-medium text-lg ${isBooking ? 'opacity-60 cursor-not-allowed' : ''}`}
+                                disabled={isBooking}
                             >
-                                Book Now
+                                {isBooking ? 'Booking...' : 'Book Now'}
                             </button>
 
                         </div>
@@ -2692,4 +2699,5 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
 

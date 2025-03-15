@@ -324,7 +324,6 @@ const clients = [
     { id: 9, name: 'goan', imageUrl: '/assets/icons/goan.png' },
     { id: 10, name: 'mowi', imageUrl: '/assets/icons/mowi.png' }
 ];
-
 const ClientSwiper = () => {
     return (
         <div className="bg-gray-50 py-10">
@@ -468,7 +467,6 @@ const ClientSwiper = () => {
         </div>
     );
 };
-
 export default ClientSwiper;
 
 

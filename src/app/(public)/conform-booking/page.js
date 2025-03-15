@@ -2,13 +2,15 @@
 // ConformBooking.js
 "use client";
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import ProgressBar from '../../components/ProgressBar';
+import { useRouter } from 'next/navigation';
 import { format } from 'date-fns';
-import { FaPlaneDeparture, FaCalendarAlt, FaUsers } from 'react-icons/fa';
 import BillingInformation from '../components/BillingInformation';
+import { FaArrowRightToBracket, FaCalendar } from 'react-icons/fa6';
+import { IoIosMan } from 'react-icons/io';
 
 const ConformBooking = () => {
+    const router = useRouter();
     const [selectedRoom, setSelectedRoom] = useState(null);
     const [progressWidth, setProgressWidth] = useState(0);
     const [bookingDetails, setBookingDetails] = useState({
@@ -44,16 +46,17 @@ const ConformBooking = () => {
 
     return (
         <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-semibold mb-4 text-center">Confirm Your Booking</h1>
+            <h1 className="lg:text-3xl text-2xl text-center font-medium mb-10">Your Booking <span className='bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent'>
+                Book
+            </span> </h1>
+
+
             <ProgressBar progressWidth={progressWidth} currentCheckpoint={3} />
 
             {selectedRoom ? (
                 <>
                     <div className="bg-white rounded-lg mt-20">
-                        <h2 className="text-xl font-semibold mb-3">Booking Summary</h2>
-
-                        {/* Booking Details Summary  */}
-                        <div className="flex justify-between items-center mb-3 border border-gray-200 p-4 rounded-md">
+                        {/* <div className="flex justify-between items-center mb-3 border border-gray-200 p-4 rounded-md">
                             <div className="flex items-center gap-3">
                                 <FaCalendarAlt className="text-orange-500" />
                                 <div>
@@ -88,38 +91,71 @@ const ConformBooking = () => {
                                     </p>
                                 </div>
                             </div>
+                        </div> */}
+
+                        <div className="bg-white flex lg:justify-between items-center p-4 mt-14 rounded-lg border border-gray-100 shadow-md">
+                            <div className="md:flex gap-8 grid grid-cols-2">
+                                <div>
+                                    <p className="text-sm text-prime font-medium">Check-in</p>
+                                    <p className="flex items-center gap-2 mt-2">
+                                        <FaArrowRightToBracket className='lg:size-5 size-4 text-main' />
+                                        {format(bookingDetails.checkInDate, 'dd/MM/yyyy')}</p>
+                                </div>
+                                <div>
+                                    <p className="text-sm text-prime font-medium">Check-out</p>
+                                    <p className="flex items-center gap-2 mt-2">
+                                        <FaArrowRightToBracket className='lg:size-5 size-4 text-main' />
+                                        {format(bookingDetails.checkOutDate, 'dd/MM/yyyy')}</p>
+                                </div>
+                                <div>
+                                    <p className="text-sm text-prime font-medium">Nights</p>
+                                    <p className="flex items-center gap-2 mt-2">
+                                        <FaCalendar className='lg:size-5 size-4 text-main' />
+                                        {bookingDetails.nights}</p>
+                                </div>
+                                <div>
+                                    <p className="text-sm text-prime font-medium">Adults</p>
+                                    <p className="flex items-center gap-2 mt-2">
+                                        <IoIosMan className='lg:size-5 size-4 text-main' />
+                                        {bookingDetails.adults}</p>
+                                </div>
+                            </div>
+                            <button
+                                className="px-4 py-2 hidden md:block bg-orange-500 text-white rounded-md"
+                                onClick={() => router.back()}
+                            >
+                                Change Dates
+                            </button>
                         </div>
-                        {/* Booking Details Summary end  */}
+
 
                         {/* Start Table  */}
                         <div className="overflow-x-auto mt-10">
                             <table className="min-w-full divide-y divide-gray-200">
                                 <thead className="bg-gray-100">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" className="px-6 py-3 text-left text-base text-nowrap font-medium text-gray-500 tracking-wider">
                                             {selectedRoom.name}
-                                            <br />
-                                            Standard Rate
                                         </th>
-                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
                                             Guests
                                         </th>
-                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
                                             Nights
                                         </th>
-                                        <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" className="px-6 py-3 text-right text-sm text-nowrap font-medium text-gray-500 uppercase tracking-wider">
                                             Total Price
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
                                     <tr>
-                                        <td className="px-6 py-4 whitespace-nowrap"></td>
-                                        <td className="px-6 py-4 whitespace-nowrap">
+                                        <td className="px-6 py-2 whitespace-nowrap"></td>
+                                        <td className="px-6 py-2 whitespace-nowrap">
                                             {bookingDetails.adults} Adults
                                         </td>
-                                        <td className="px-6 py-4 whitespace-nowrap">{bookingDetails.nights}</td>
-                                        <td className="px-6 py-4 text-right whitespace-nowrap">₹{totalPrice.toLocaleString()}</td>
+                                        <td className="px-6 py-2 whitespace-nowrap">{bookingDetails.nights}</td>
+                                        <td className="px-6 py-2 text-right whitespace-nowrap">₹{totalPrice.toLocaleString()}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -128,7 +164,7 @@ const ConformBooking = () => {
 
                         {/* Total  */}
                         <div className="mt-5 py-6 flex items-center justify-between border-t border-gray-300">
-                            <span className="text-lg font-semibold text-gray-700">TOTAL</span>
+                            <span className="text-lg font-semibold text-gray-900">TOTAL :</span>
                             <span className="lg:text-2xl text-base font-bold text-orange-500">₹{totalPrice.toLocaleString()}</span>
                         </div>
                         {/* Total */}

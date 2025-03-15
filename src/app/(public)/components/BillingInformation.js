@@ -374,7 +374,7 @@ const BillingInformation = () => {
 
 
     return (
-        <div className="bg-white rounded-lg shadow-md p-6 border border-gray-300 my-10">
+        <div className="bg-white rounded-lg shadow-md lg:p-6 p-4 border border-gray-300 lg:my-10 my-0">
             <h2 className="text-xl font-semibold mb-4">Billing Information</h2>
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Name */}
