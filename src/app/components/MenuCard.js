@@ -264,7 +264,7 @@ export default function AshramHeader({ imageUrl, title, description }) {
                     </h1>
 
                     {/* Dynamic Description */}
-                    <p className="text-lg md:text-xl text-gray-300 max-w-xl mx-auto leading-relaxed">
+                    <p className="text-base md:text-lg text-gray-300  max-w-xl mx-auto">
                         {description}
                     </p>
                 </div>

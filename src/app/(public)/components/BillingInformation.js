@@ -525,6 +525,8 @@ const BillingInformation = () => {
                     <label htmlFor="stateProvince" className="block text-sm font-medium text-gray-700 mb-1">
                         State/Province
                     </label>
+
+                    
                     <select
                         id="stateProvince"
                         name="stateProvince"

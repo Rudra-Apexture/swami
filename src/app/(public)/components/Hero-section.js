@@ -32,7 +32,7 @@
 //                 <div className="px-4">
 //                     <div className="lg:text-left text-center space-y-6">
 //                         <div className="inline-block">
-//                             <h2 className="text-xl font-medium text-[#FF7600] mb-2">Welcome to</h2>
+//                             <h2 className="text-xl font-medium text-main mb-2">Welcome to</h2>
 //                             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
 //                                 Sahajanand
 //                                 <span className="block text-[#FF7600]">Wellness</span>
@@ -2529,7 +2529,6 @@ const HeroSection = () => {
     const totalChildren = guests.reduce((sum, guest) => sum + guest.children, 0);
 
     const handleBookNow = () => {
-        // 1. Store the booking data
         const bookingData = {
             date: dateRange,
             numberOfNights,
@@ -2545,22 +2544,21 @@ const HeroSection = () => {
     };
 
     return (
-        <div className="relative w-full min-h-screen flex items-center justify-center bg-[#FDF5E6] lg:py-28 py-16">
+        <div className="relative w-full min-h-screen flex items-center justify-center bg-[#FDF5E6] py-10">
             {/* Main Content Container */}
-            <div className="relative z-10 w-full max-w-5xl grid lg:grid-cols-2 gap-10 items-center">
+            <div className="relative z-10 w-full max-w-6xl grid lg:grid-cols-2 gap-10 items-center">
                 {/* Left Side - Welcome Text */}
                 <div className="px-4">
                     <div className="lg:text-left text-center space-y-5">
-                        <div className="inline-block md:space-y-6 space-y-4">
-                            <h2 className="text-xl font-bold text-[#FF7600]">Welcome to</h2>
+                        <div className="inline-block space-y-4">
+                            <h2 className="text-xl font-bold text-main">Welcome to</h2>
                             <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                                 Sahajanand
-                                <span className="block text-[#FF7600]">Wellness</span>
+                                <span className="block text-main">Wellness</span>
                             </h1>
                         </div>
-                        <p className="text-gray-700 text-lg font-medium leading-relaxed">
-                            Experience tranquility and rejuvenation at our sacred ashram.
-                            Begin your journey towards inner peace and holistic wellness.
+                        <p className="text-gray-700 text-lg leading-relaxed">
+                            At Sahajanand Wellness, we believe true health is a harmonious blend of mind, body, and spirit. Rooted in ancient wisdom and powered by modern science, our mission is to guide you on a journey toward radiant well-being and Sahajanand—the effortless joy that springs from living in balance.
                         </p>
                         <div className="flex gap-4 items-center lg:justify-start justify-center">
                             <div className="h-1 lg:w-20 w-10 bg-orange-500"></div>
@@ -2586,7 +2584,7 @@ const HeroSection = () => {
                                 <label className="block text-gray-700 font-medium mb-2">
                                     Night :
                                 </label>
-                                <span className="size-6 rounded-full bg-[#FF7600] text-white flex items-center justify-center">
+                                <span className="size-6 rounded-full bg-main text-white flex items-center justify-center">
                                     {numberOfNights}
                                 </span>
                             </div>
@@ -2602,19 +2600,19 @@ const HeroSection = () => {
                                 >
                                     <div className="flex gap-4 items-center">
                                         <div className="flex items-center gap-2">
-                                            <span className="size-6 rounded-full bg-[#FF7600] text-white flex items-center justify-center">
+                                            <span className="size-6 rounded-full bg-main text-white flex items-center justify-center">
                                                 {selectedRoom.value}
                                             </span>
                                             <span className="text-prime font-medium">Room</span>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <span className="size-6 rounded-full bg-[#FF7600] text-white flex items-center justify-center">
+                                            <span className="size-6 rounded-full bg-main text-white flex items-center justify-center">
                                                 {totalAdults}
                                             </span>
                                             <span className="text-prime font-medium">Adults</span>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <span className="size-6 rounded-full bg-[#FF7600] text-white flex items-center justify-center">
+                                            <span className="size-6 rounded-full bg-main text-white flex items-center justify-center">
                                                 {totalChildren}
                                             </span>
                                             <span className="text-prime font-medium">Children</span>
@@ -2678,13 +2676,13 @@ const HeroSection = () => {
                             </div>
 
                             {/* Book Button */}
-                            {/* Book Button */}
                             <button
                                 onClick={handleBookNow} // Call the book now handler
-                                className="w-full bg-orange-500 text-white py-4 rounded-xl font-medium text-lg shadow-lg hover:bg-orange-600 transform transition hover:-translate-y-1 focus:ring-4 focus:ring-orange-200"
+                                className="w-full bg-orange-500 text-white py-4 rounded-md font-medium text-lg"
                             >
                                 Book Now
                             </button>
+
                         </div>
                     </div>
                 </div>
