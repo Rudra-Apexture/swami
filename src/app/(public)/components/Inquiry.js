@@ -2800,8 +2800,6 @@
 // );
 
 // export default BookingForm;
-
-
 "use client";
 
 import React, { useState, useRef, useEffect } from 'react';
@@ -3323,6 +3321,7 @@ const FormField = ({ label, id, type, icon, value, onChange }) => (
         <label htmlFor={id} className="block text-sm font-medium text-gray-700 mb-2">
             {label}
         </label>
+
         <div className="relative">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 {icon}

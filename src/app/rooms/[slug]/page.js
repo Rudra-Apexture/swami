@@ -6176,6 +6176,7 @@ import { DatePickerWithRange } from "../../components/DatePickerWithRange.js";
 import Dropdown from '@/app/(public)/components/Dropdown';
 import { format, differenceInDays } from 'date-fns';
 import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
+import { FaRegCalendarMinus, FaRegMoon } from 'react-icons/fa';
 
 const RoomDetails = () => {
     const [dateRange, setDateRange] = useState(null);
@@ -6812,19 +6813,24 @@ const RoomDetails = () => {
 
                         <div className='space-y-2'>
                             <div>
-                                <label className="block text-gray-700 font-medium mb-2">
+                                <label className="flex items-center gap-2 text-[#3D3D3D] font-medium text-base mb-3">
+                                    <FaRegCalendarMinus className="text-main size-5" />
                                     Select Your Stay Duration
                                 </label>
                                 <DatePickerWithRange onChange={handleDateRangeChange} />
-                                {dateRange && dateRange.from && dateRange.to && (
-                                    <div className='flex gap-2 py-2'>
-                                        <label className="block text-gray-700 font-medium mb-2">Night :
-                                        </label>
-                                        <span className='size-6 rounded-full bg-main text-white flex items-center justify-center'>
-                                            {numberOfNights}
-                                        </span>
-                                    </div>
-                                )}
+                            </div>
+
+                            <div className="bg-orange-50 p-3 rounded-lg flex items-center justify-between">
+                                <div className="flex items-center gap-6">
+                                    <FaRegMoon className="size-5 text-main" />
+                                    <span className="text-[#3D3D3D] font-medium">Duration : </span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <span className="size-6 rounded-full bg-main text-white flex items-center justify-center">
+                                        {numberOfNights}
+                                    </span>
+                                    <span className="block text-prime font-medium">Night{numberOfNights !== 1 ? 's' : ''}</span>
+                                </div>
                             </div>
 
                             <div>
@@ -6832,7 +6838,7 @@ const RoomDetails = () => {
                                     Guest Information
                                 </label>
                                 <div
-                                    className="border border-gray-300 p-2.5 z-20 rounded-md cursor-pointer hover:bg-[#f5f5f5] transition"
+                                    className="border border-gray-300 p-3 z-20 rounded-md cursor-pointer hover:bg-[#f5f5f5] transition"
                                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                                 >
                                     <div className="flex gap-6 items-center">
