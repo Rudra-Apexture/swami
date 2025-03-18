@@ -247,14 +247,14 @@ const RoomBooking = () => {
                 { id: 3, roomNumber: '103', guestName: 'raju padamani', checkIn: '2024-03-20', checkOut: '2024-03-10' },
                 { id: 4, roomNumber: '104', guestName: 'viru desai', checkIn: '2024-03-12', checkOut: '2024-03-25' },
                 { id: 5, roomNumber: '105', guestName: 'yash sheliya', checkIn: '2024-03-11', checkOut: '2024-03-11' },
-                { id: 6, roomNumber: '110', guestName: 'shahil magaroliya', checkIn: '2024-03-18', checkOut: '2024-03-18'},
+                { id: 6, roomNumber: '110', guestName: 'shahil magaroliya', checkIn: '2024-03-18', checkOut: '2024-03-18' },
             ].filter(result =>
                 result.roomNumber.toLowerCase().includes(searchQuery.toLowerCase()) ||
                 result.guestName.toLowerCase().includes(searchQuery.toLowerCase())
             );
             setSearchResults(fakeSearchResults);
             setLoading(false);
-        }, 2000);
+        }, 1000);
     };
 
     return (
@@ -353,7 +353,7 @@ const SearchResults = ({ results, loading }) => {
                                 {result.checkIn}
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                {result.checkOut}       
+                                {result.checkOut}
                             </td>
                         </tr>
                     ))}

@@ -28,7 +28,6 @@ import MenuCard from '../components/MenuCard';
 import HotelCard from '../(public)/components/HotelCard';
 import { usePathname } from 'next/navigation'; // Import usePathname
 
-
 const Rooms = () => {
     const pathname = usePathname();
     return (

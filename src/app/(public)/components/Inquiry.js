@@ -2808,7 +2808,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { CalendarDays, User, Users, ChevronDown, Send, Building, CreditCard, Mail, Phone, Globe, MapPin, Heart } from 'lucide-react';
 import { FaHeart } from "react-icons/fa";
 
-
 // Theme Color
 const themeColor = '#ff5700';
 
@@ -2883,270 +2882,6 @@ const BookingForm = () => {
     );
 };
 
-// const InquiryForm = () => {
-//     const [selectedGuests, setSelectedGuests] = useState('1 Adult');
-//     const [selectedCountry, setSelectedCountry] = useState('India');
-//     const [formData, setFormData] = useState({
-//         firstName: '',
-//         lastName: '',
-//         email: '',
-//         phone: '',
-//         city: '',
-//         notes: '',
-//         termsAccepted: false
-//     });
-//     const [step, setStep] = useState(1);
-//     const totalSteps = 2;
-
-//     const handleChange = (e) => {
-//         const { id, value, type, checked } = e.target;
-//         setFormData(prev => ({
-//             ...prev,
-//             [id]: type === 'checkbox' ? checked : value
-//         }));
-//     };
-
-//     const handleSubmit = (e) => {
-//         e.preventDefault();
-//         console.log({
-//             ...formData,
-//             selectedGuests,
-//             selectedCountry,
-//             checkInDate: document.getElementById('checkInDate').value,
-//             checkOutDate: document.getElementById('checkOutDate').value
-//         });
-//         alert("Inquiry sent successfully! We'll get back to you shortly.");
-//     };
-
-//     const nextStep = () => {
-//         setStep(step + 1);
-//     };
-
-//     const prevStep = () => {
-//         setStep(step - 1);
-//     };
-
-//     const guestOptions = ['1 Adult', '2 Adults', '3 Adults', '4 Adults', '1 Adult, 1 Child', '2 Adults, 1 Child', '2 Adults, 2 Children'];
-//     const countries = [
-//         "India", "United States", "Canada", "United Kingdom", "Germany",
-//         "France", "Australia", "Japan", "China", "Brazil",
-//         "Spain", "Italy", "Netherlands", "Switzerland"
-//     ];
-
-//     return (
-//         <form onSubmit={handleSubmit} className="space-y-6">
-//             {/* Progress Bar */}
-//             <div className="w-full bg-gray-200 rounded-full h-2 lg:mb-6 mb-4">
-//                 <div
-//                     className="h-2 rounded-full transition-all duration-300 ease-in-out"
-//                     style={{ width: `${(step / totalSteps) * 100}%`, backgroundColor: themeColor }}
-//                 ></div>
-//             </div>
-
-//             <h2 className="lg:text-2xl text-xl font-medium lg:mb-6 mb-4 flex items-center" style={{ color: themeColor }}>
-//                 {step === 1 ? (
-//                     <>
-//                         <CalendarDays className="mr-2" style={{ color: themeColor }} />
-//                         Tell us about your stay
-//                     </>
-//                 ) : (
-//                     <>
-//                         <User className="mr-2" style={{ color: themeColor }} />
-//                         Your contact information
-//                     </>
-//                 )}
-//             </h2>
-
-//             {step === 1 && (
-//                 <>
-//                     {/* Date Selection & Guests - Modern Card Layout */}
-//                     <div className="bg-white rounded-2xl lg:p-6 p-4 shadow-md border" style={{ borderColor: themeColor }}>
-//                         <h3 className="text-lg font-medium mb-4" style={{ color: themeColor }}>Stay Details</h3>
-
-//                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-//                             <FormField
-//                                 label="Check-in date"
-//                                 id="checkInDate"
-//                                 type="date"
-//                                 icon={<CalendarDays className="h-5 w-5" style={{ color: themeColor }} />}
-//                             />
-
-//                             <FormField
-//                                 label="Check-out date"
-//                                 id="checkOutDate"
-//                                 type="date"
-//                                 icon={<CalendarDays className="h-5 w-5" style={{ color: themeColor }} />}
-//                             />
-
-//                             <div>
-//                                 <label htmlFor="guests" className="block text-sm font-medium text-gray-700 mb-2">
-//                                     Guests
-//                                 </label>
-//                                 <CustomDropdown
-//                                     id="guests"
-//                                     options={guestOptions}
-//                                     selectedValue={selectedGuests}
-//                                     onSelect={setSelectedGuests}
-//                                     icon={<Users className="h-5 w-5" style={{ color: themeColor }} />}
-//                                 />
-//                             </div>
-//                         </div>
-//                     </div>
-
-//                     {/* Special Requests */}
-//                     <div className="bg-white rounded-2xl lg:p-6 p-4 shadow-md border" style={{ borderColor: themeColor }}>
-//                         <h3 className="text-lg font-medium mb-4" style={{ color: themeColor }}>Special Requests</h3>
-
-//                         <div>
-//                             <textarea
-//                                 id="notes"
-//                                 rows="3"
-//                                 className="block w-full border border-gray-300 rounded-xl hover:border-orange-500 font-medium  px-4 py-3 text-gray-700 focus:outline-none shadow-sm"
-//                                 value={formData.notes}
-//                                 onChange={handleChange}
-//                                 placeholder="Tell us about any special needs or preferences..."
-//                             />
-//                         </div>
-//                     </div>
-
-//                     {/* Next Button */}
-//                     <button
-//                         type="button"
-//                         onClick={nextStep}
-//                         className="w-full text-white font-medium py-4 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
-//                         style={{ backgroundColor: themeColor }}
-//                     >
-//                         Continue
-//                         <ChevronDown className="transform rotate-270" size={18} />
-//                     </button>
-//                 </>
-//             )}
-
-//             {step === 2 && (
-//                 <>
-//                     {/* Personal Information */}
-//                     <div className="bg-white rounded-2xl lg:p-6 p-4 shadow-md border" style={{ borderColor: themeColor }}>
-//                         <h3 className="text-lg font-medium mb-4" style={{ color: themeColor }}>Personal Details</h3>
-
-//                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-//                             <FormField
-//                                 label="First Name"
-//                                 id="firstName"
-//                                 type="text"
-//                                 icon={<User className="h-5 w-5" style={{ color: themeColor }} />}
-//                                 value={formData.firstName}
-//                                 onChange={handleChange}
-//                             />
-
-//                             <FormField
-//                                 label="Last Name"
-//                                 id="lastName"
-//                                 type="text"
-//                                 icon={<User className="h-5 w-5" style={{ color: themeColor }} />}
-//                                 value={formData.lastName}
-//                                 onChange={handleChange}
-//                             />
-//                         </div>
-
-//                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-//                             <FormField
-//                                 label="Email"
-//                                 id="email"
-//                                 type="email"
-//                                 icon={<Mail className="h-5 w-5" style={{ color: themeColor }} />}
-//                                 value={formData.email}
-//                                 onChange={handleChange}
-//                             />
-
-//                             <FormField
-//                                 label="Phone"
-//                                 id="phone"
-//                                 type="tel"
-//                                 icon={<Phone className="h-5 w-5" style={{ color: themeColor }} />}
-//                                 value={formData.phone}
-//                                 onChange={handleChange}
-//                             />
-//                         </div>
-//                     </div>
-
-//                     {/* Location Information */}
-//                     <div className="bg-white rounded-2xl lg:p-6 p-4 shadow-md border" style={{ borderColor: themeColor }}>
-//                         <h3 className="text-lg font-medium mb-4" style={{ color: themeColor }}>Your Location</h3>
-
-//                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-//                             <div>
-//                                 <label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-2">
-//                                     Country
-//                                 </label>
-//                                 <CustomDropdown
-//                                     id="country"
-//                                     options={countries}
-//                                     selectedValue={selectedCountry}
-//                                     onSelect={setSelectedCountry}
-//                                     icon={<Globe className="h-5 w-5" style={{ color: themeColor }} />}
-//                                 />
-//                             </div>
-
-//                             <FormField
-//                                 label="City"
-//                                 id="city"
-//                                 type="text"
-//                                 icon={<MapPin className="h-5 w-5" style={{ color: themeColor }} />}
-//                                 value={formData.city}
-//                                 onChange={handleChange}
-//                             />
-//                         </div>
-//                     </div>
-
-//                     {/* Terms and Conditions */}
-//                     <div className="bg-white rounded-2xl lg:p-6 p-4 shadow-md border" style={{ borderColor: themeColor }}>
-//                         <div className="flex items-center">
-//                             <div className="flex items-center h-5">
-//                                 <input
-//                                     id="termsAccepted"
-//                                     type="checkbox"
-//                                     className="size-5"
-//                                     style={{ accentColor: themeColor }}
-//                                     checked={formData.termsAccepted}
-//                                     onChange={handleChange}
-//                                 />
-//                             </div>
-//                             <div className="ml-3 text-sm">
-//                                 <label htmlFor="termsAccepted" className="font-medium text-gray-700">
-//                                     I agree to the terms and conditions
-//                                 </label>
-//                                 <p className="text-gray-500 mt-1">
-//                                     By checking this box, you accept our <a href="#" style={{ color: themeColor }} className="hover:underline font-medium">Terms of Service</a> and <a href="#" style={{ color: themeColor }} className="hover:underline font-medium">Privacy Policy</a>.
-//                                 </p>
-//                             </div>
-//                         </div>
-//                     </div>
-
-//                     {/* Navigation Buttons */}
-//                     <div className="flex gap-4">
-//                         <button
-//                             type="button"
-//                             onClick={prevStep}
-//                             className="w-1/3 bg-gray-300/50 text-gray-700 font-medium py-4 px-6 rounded-xl shadow-md hover:bg-gray-200 transition-all duration-300"
-//                         >
-//                             Back
-//                         </button>
-
-//                         <button
-//                             type="submit"
-//                             className="w-2/3 text-white font-medium py-4 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
-//                             disabled={!formData.termsAccepted}
-//                             style={{ backgroundColor: themeColor }}
-//                         >
-//                             <Send size={18} />
-//                             Send Inquiry
-//                         </button>
-//                     </div>
-//                 </>
-//             )}
-//         </form>
-//     );
-// };
 const InquiryForm = () => {
     const [selectedGuests, setSelectedGuests] = useState('1 Adult');
     const [selectedCountry, setSelectedCountry] = useState('India');
@@ -3243,15 +2978,15 @@ const InquiryForm = () => {
                 ></div>
             </div>
 
-            <h2 className="lg:text-2xl text-xl font-medium lg:mb-6 mb-4 flex items-center" style={{ color: themeColor }}>
+            <h2 className="lg:text-2xl text-xl font-medium lg:mb-6 mb-4 flex items-center text-prime">
                 {step === 1 ? (
                     <>
-                        <CalendarDays className="mr-2" style={{ color: themeColor }} />
+                        <CalendarDays className="mr-2" />
                         Tell us about your stay
                     </>
                 ) : (
                     <>
-                        <User className="mr-2" style={{ color: themeColor }} />
+                        <User className="mr-2" />
                         Your contact information
                     </>
                 )}
@@ -3317,11 +3052,11 @@ const InquiryForm = () => {
                     <button
                         type="button"
                         onClick={nextStep}
-                        className="w-full text-white font-medium py-4 px-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                        className="w-full text-white font-medium py-4 px-6 rounded-md shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                         style={{ backgroundColor: themeColor }}
                     >
                         Continue
-                        <ChevronDown className="transform rotate-270" size={18} />
+                        <ChevronDown className="transform rotate-270" />
                     </button>
                 </>
             )}
@@ -3674,3 +3409,7 @@ const CheckIcon = ({ className }) => (
 );
 
 export default BookingForm;
+
+
+
+

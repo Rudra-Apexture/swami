@@ -10,9 +10,7 @@ const page = () => {
                 title="SEND-INQUIRY"
                 description="Fill out the form below, and our team will respond within [24 hours/days]. Whether you’re seeking pricing, customization, or answers—we’re here to help! "
             />
-
             <Inquiry />
-
         </>
     )
 }

@@ -246,21 +246,22 @@ const services = [
         description: "Cleanliness is prioritized, but amenities are simple. Expect minimal privacy and bring a toiletries kit if preferred. Modern ashrams may offer upgraded facilities; traditional ones emphasize austerity."
     }
 ];
+
 export default function AshramServices() {
     return (
         <div className="py-10 bg-white">
             <div className="container mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-10 gap-8 px-4">
                     {services.map((service, index) => (
-                        <div key={index} className={`flex lg:flex-row flex-col lg:items-start items-center lg:space-x-6 group cursor-pointer ${index % 2 !== 0 ? 'lg:border-l-2 lg:border-gray-300/50 pl-6' : ''}`}>
+                        <div key={index} className={`flex lg:flex-row flex-col lg:items-start items-center lg:space-x-6 ${index % 2 !== 0 ? 'lg:border-l lg:border-slate-300 p-0 lg:pl-6' : ''}`}>
                             {/* Images */}
-                            <div className="size-16 flex-shrink-0 bg-orange-50 rounded-full flex items-center justify-center group-hover:bg-orange-300 transition-colors">
+                            <div className="size-16 flex-shrink-0 bg-orange-50 rounded-full flex items-center justify-center transition-colors">
                                 <Image
                                     src={service.image}
                                     alt={service.title}
                                     width={40}
                                     height={40}
-                                    className="object-contain"
+                                    className="object-cover"
                                     property="true"
                                 />
                             </div>

@@ -2042,10 +2042,10 @@ const HotelCard = ({ limit = null, filterAdults = null, onRoomSelect }) => {  //
                                     onClick={toggleSlider}
                                     className="absolute top-3 right-3 bg-white hover:bg-black hover:text-white bg-opacity-60 cursor-pointer rounded p-1 hover:bg-opacity-100 transition duration-300"
                                 >
-                                    <IoCameraOutline className='size-5 group-hover:rotate-90 transition-transform duration-300 ease-in-out' />
+                                    <IoCameraOutline className='size-5 transition-transform duration-300 ease-in-out' />
                                 </button>
 
-                                <div className="absolute top-3 left-3 bg-orange-500/70 text-white px-3 py-0.5 rounded-full text-sm">
+                                <div className="absolute top-3 left-3 bg-orange-500/50 text-white px-3 py-0.5 rounded-full text-sm">
                                     {room.name}
                                 </div>
                             </div>

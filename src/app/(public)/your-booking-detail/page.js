@@ -1339,16 +1339,196 @@
 
 
 // YourBookingDetail.js
+// working...
+// "use client";
+
+// import React, { useEffect, useState } from 'react';
+// import { useRouter } from 'next/navigation';
+// import { format } from 'date-fns';
+// import { FaArrowRightToBracket } from "react-icons/fa6";
+// import { FaCalendar } from "react-icons/fa6";
+// import { IoIosMan } from "react-icons/io";
+// import HotelCard from '../components/HotelCard';
+// import ProgressBar from '../../components/ProgressBar';
+
+// const YourBookingDetail = () => {
+//     const router = useRouter();
+//     const [bookingData, setBookingData] = useState(null);
+//     const [currentCheckpoint, setCurrentCheckpoint] = useState(1); // Set Checkpoint to 1
+
+//     useEffect(() => {
+//         const storedData = localStorage.getItem('bookingData');
+//         if (storedData) {
+//             setBookingData(JSON.parse(storedData));
+//         } else {
+//             router.push('/');
+//         }
+//     }, [router]);
+
+//     if (!bookingData) {
+//         return null; // Return null if no booking data.
+//     }
+
+//     const formattedCheckInDate = bookingData.date?.from ? format(new Date(bookingData.date.from), 'dd/MM/yyyy') : '';
+//     const formattedCheckOutDate = bookingData.date?.to ? format(new Date(bookingData.date.to), 'dd/MM/yyyy') : '';
+
+//     return (
+//         <div className="lg:p-8 p-4">
+//             <h1 className="lg:text-3xl text-2xl text-center font-medium mb-10">Your Booking <span className='bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent'> Rooms </span>  </h1>
+
+//             <ProgressBar currentCheckpoint={currentCheckpoint} />
+
+//             <div className="bg-white flex lg:justify-between items-center p-4 mt-14 rounded-lg border border-gray-100 shadow-md">
+//                 <div className="md:flex gap-8 grid grid-cols-2">
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Check-in</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <FaArrowRightToBracket className='size-5 text-main' />
+//                             {formattedCheckInDate}</p>
+//                     </div>
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Check-out</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <FaArrowRightToBracket className='size-5 text-main' />
+//                             {formattedCheckOutDate}</p>
+//                     </div>
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Nights</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <FaCalendar className='size-5 text-main' />
+//                             {bookingData.numberOfNights}</p>
+//                     </div>
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Adults</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <IoIosMan className='size-5 text-main' />
+//                             {bookingData.totalAdults}</p>
+//                     </div>
+//                 </div>
+
+//                 <button
+//                     className="px-4 py-2 hidden md:block bg-orange-500 text-white rounded-md"
+//                     onClick={() => router.back()}
+//                 >
+//                     Change Dates
+//                 </button>
+//             </div>
+
+//             <div className='grid lg:grid-cols-3 grid-cols-1 my-10 gap-4'>
+//                 <HotelCard filterAdults={bookingData.totalAdults} />
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default YourBookingDetail;
+
+
+// app/your-booking-detail/page.js
+// "use client";
+
+// import React, { useEffect, useState } from 'react';
+// import { useRouter } from 'next/navigation';
+// import { format, differenceInDays } from 'date-fns';
+// import { FaArrowRightToBracket } from "react-icons/fa6";
+// import { FaCalendar } from "react-icons/fa6";
+// import { IoIosMan } from "react-icons/io";
+// import HotelCard from '../components/HotelCard';
+// import ProgressBar from '../../components/ProgressBar';  // Make sure this path is correct
+
+// const YourBookingDetail = () => {
+//     const router = useRouter();
+//     const [bookingData, setBookingData] = useState(null);
+//     const [numberOfNights, setNumberOfNights] = useState(0);  // State for number of nights
+//     const [currentCheckpoint, setCurrentCheckpoint] = useState(1); // Set Checkpoint to 1
+
+//     useEffect(() => {
+//         const storedData = localStorage.getItem('bookingData');
+//         if (storedData) {
+//             const parsedData = JSON.parse(storedData);
+//             setBookingData(parsedData);
+
+//             // Calculate number of nights
+//             if (parsedData.date && parsedData.date.from && parsedData.date.to) {
+//                 const checkInDate = new Date(parsedData.date.from);
+//                 const checkOutDate = new Date(parsedData.date.to);
+//                 const nights = differenceInDays(checkOutDate, checkInDate);
+//                 setNumberOfNights(nights);
+//             }
+//         } else {
+//             router.push('/');
+//         }
+//     }, [router]);
+
+//     if (!bookingData) {
+//         return null; // Return null if no booking data.
+//     }
+
+//     const formattedCheckInDate = bookingData.date?.from ? format(new Date(bookingData.date.from), 'dd/MM/yyyy') : '';
+//     const formattedCheckOutDate = bookingData.date?.to ? format(new Date(bookingData.date.to), 'dd/MM/yyyy') : '';
+
+//     return (
+//         <div className="lg:p-8 p-4">
+//             <h1 className="lg:text-3xl text-2xl text-center font-medium mb-10">Your Booking <span className='bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent'> Rooms </span>  </h1>
+
+//             <ProgressBar currentCheckpoint={currentCheckpoint} />
+
+//             <div className="bg-white flex lg:justify-between items-center p-4 mt-14 rounded-lg border border-gray-100 shadow-md">
+//                 <div className="md:flex gap-8 grid grid-cols-2">
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Check-in</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <FaArrowRightToBracket className='size-5 text-main' />
+//                             {formattedCheckInDate}</p>
+//                     </div>
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Check-out</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <FaArrowRightToBracket className='size-5 text-main' />
+//                             {formattedCheckOutDate}</p>
+//                     </div>
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Nights</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <FaCalendar className='size-5 text-main' />
+//                             {numberOfNights}</p>
+//                     </div>
+//                     <div>
+//                         <p className="text-sm text-prime font-medium">Adults</p>
+//                         <p className="flex items-center gap-2 mt-2">
+//                             <IoIosMan className='size-5 text-main' />
+//                             {bookingData.totalAdults}</p>
+//                     </div>
+//                 </div>
+
+//                 <button
+//                     className="px-4 py-2 hidden md:block bg-orange-500 text-white rounded-md"
+//                     onClick={() => router.back()}
+//                 >
+//                     Change Dates
+//                 </button>
+//             </div>
+
+//             <div className='grid lg:grid-cols-3 grid-cols-1 my-10 gap-4'>
+//                 <HotelCard filterAdults={bookingData.totalAdults} />
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default YourBookingDetail;
+
+// app/your-booking-detail/page.js
 "use client";
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { format } from 'date-fns';
+import { format, differenceInDays } from 'date-fns';
 import { FaArrowRightToBracket } from "react-icons/fa6";
 import { FaCalendar } from "react-icons/fa6";
 import { IoIosMan } from "react-icons/io";
 import HotelCard from '../components/HotelCard';
-import ProgressBar from '../../components/ProgressBar';
+import ProgressBar from '../../components/ProgressBar';  // Make sure this path is correct
 
 const YourBookingDetail = () => {
     const router = useRouter();
@@ -1359,6 +1539,7 @@ const YourBookingDetail = () => {
         const storedData = localStorage.getItem('bookingData');
         if (storedData) {
             setBookingData(JSON.parse(storedData));
+
         } else {
             router.push('/');
         }
@@ -1421,9 +1602,6 @@ const YourBookingDetail = () => {
 };
 
 export default YourBookingDetail;
-
-
-
 
 
 

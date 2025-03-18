@@ -2416,7 +2416,7 @@
 
 // export default HeroSection;
 
-//Herosection.js
+//Herosection.js-main
 "use client";
 
 import { useState, useRef, useEffect } from "react";
@@ -2430,6 +2430,7 @@ const HeroSection = () => {
     const [guests, setGuests] = useState([
         { adults: 2, children: 0 }, // Default for 1 room
     ]);
+
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
     const [numberOfNights, setNumberOfNights] = useState(0); // State for number of nights
@@ -2699,5 +2700,6 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
 
 

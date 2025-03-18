@@ -249,6 +249,7 @@
 //     );
 // }
 
+// main-1
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -348,7 +349,7 @@ export default function Header() {
             )}
 
             <div className="container mx-auto">
-                <div className="flex items-center justify-between py-2 px-4 lg:px-0">
+                <div className="flex items-center justify-between py-1 px-4 lg:px-0">
                     <Link href="/">
                         <Image
                             src="/assets/image/swami.png"
@@ -559,4 +560,193 @@ export default function Header() {
         </header>
     );
 }
+
+
+// main-2
+// "use client";
+// import Link from "next/link";
+// import { usePathname } from "next/navigation";
+// import { useState, useRef, useEffect } from "react";
+// import Image from "next/image";
+// import { FiMenu, FiX } from "react-icons/fi";
+// import { GoDash } from "react-icons/go";
+
+// const aboutUsLinks = [
+//     { href: "/about-ashram", label: "About Ashram" },
+//     { href: "/rishikesh-city", label: "Rishikesh City" },
+//     { href: "/main-temple", label: "Main Temples" },
+//     { href: "/place-to-visit", label: "Place To Visit" },
+// ];
+
+// export default function Header() {
+//     const pathname = usePathname();
+//     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+//     const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
+//     const [isAboutUsOpen, setIsAboutUsOpen] = useState(false);
+//     const mobileMenuRef = useRef(null);
+//     const dropdownRef = useRef(null);
+//     const [isSticky, setIsSticky] = useState(false);
+
+//     const toggleMobileMenu = () => {
+//         setIsMobileMenuOpen(!isMobileMenuOpen);
+//     };
+
+//     useEffect(() => {
+//         function handleClickOutside(event) {
+//             if (
+//                 dropdownRef.current &&
+//                 !dropdownRef.current.contains(event.target)
+//             ) {
+//                 setIsAboutUsOpen(false);
+//             }
+//         }
+
+//         document.addEventListener("mousedown", handleClickOutside);
+//         return () => {
+//             document.removeEventListener("mousedown", handleClickOutside);
+//         };
+//     }, []);
+
+//     useEffect(() => {
+//         function handleClickOutside(event) {
+//             if (
+//                 mobileMenuRef.current &&
+//                 !mobileMenuRef.current.contains(event.target)
+//             ) {
+//                 setIsMobileMenuOpen(false);
+//                 setIsMobileDropdownOpen(false);
+//             }
+//         }
+
+//         if (isMobileMenuOpen) {
+//             document.addEventListener("mousedown", handleClickOutside);
+//         } else {
+//             document.removeEventListener("mousedown", handleClickOutside);
+//         }
+
+//         return () => {
+//             document.removeEventListener("mousedown", handleClickOutside);
+//         };
+//     }, [isMobileMenuOpen]);
+
+//     // Sticky Header Logic
+//     useEffect(() => {
+//         const handleScroll = () => {
+//             if (window.scrollY > 300) {
+//                 setIsSticky(true);
+//             } else {
+//                 setIsSticky(false);
+//             }
+//         };
+
+//         window.addEventListener("scroll", handleScroll);
+
+//         return () => {
+//             window.removeEventListener("scroll", handleScroll);
+//         };
+//     }, []);
+
+//     return (
+//         <header
+//             className={`h-16 sticky top-0 left-0 w-full z-50 bg-white shadow-md transition-all duration-300 flex items-center`}
+//         >
+//             <div className="container mx-auto">
+//                 <div className="flex items-center justify-between py-2 px-4 lg:px-0">
+//                     <Link href="/">
+//                         <Image
+//                             src="/assets/image/swami.png"
+//                             width={160} // Fixed width
+//                             height={50} // Fixed height
+//                             alt="Logo"
+//                             priority={true}
+//                             className="object-contain"
+//                         />
+//                     </Link>
+
+//                     <nav className="hidden lg:flex items-center gap-6">
+//                         <ul className="flex space-x-6 items-center">
+//                             <li>
+//                                 <Link
+//                                     href="/"
+//                                     className={`text-lg hover:text-main ${pathname === "/" ? "text-main" : ""}`}
+//                                 >
+//                                     Home
+//                                 </Link>
+//                             </li>
+//                             <li>
+//                                 <Link
+//                                     href="/rooms"
+//                                     className={`text-lg hover:text-main ${pathname === "/rooms" ? "text-main" : ""}`}
+//                                 >
+//                                     Rooms
+//                                 </Link>
+//                             </li>
+
+//                             <li className="relative" ref={dropdownRef}>
+//                                 <button
+//                                     onClick={() => setIsAboutUsOpen(!isAboutUsOpen)}
+//                                     className="flex items-center text-lg hover:text-main"
+//                                 >
+//                                     About Us
+//                                     <Image
+//                                         src="/assets/icons/down.png"
+//                                         width={16}
+//                                         height={16}
+//                                         alt="Dropdown Icon"
+//                                         className={`ml-2 transition-transform duration-300 ease-in ${isAboutUsOpen ? "rotate-180" : ""}`}
+//                                     />
+//                                 </button>
+
+//                                 {isAboutUsOpen && (
+//                                     <ul className="absolute text-center left-0 mt-2 py-1 w-40 bg-white border border-slate-300 rounded-md">
+//                                         {aboutUsLinks.map((link, index) => (
+//                                             <li key={index} className="hover:bg-main hover:text-white">
+//                                                 <Link href={link.href} className="block px-4 py-2">
+//                                                     {link.label}
+//                                                 </Link>
+//                                             </li>
+//                                         ))}
+//                                     </ul>
+//                                 )}
+//                             </li>
+
+//                             <li>
+//                                 <Link href="/amenities" className="text-lg hover:text-main">
+//                                     Amenities
+//                                 </Link>
+//                             </li>
+//                             <li>
+//                                 <Link href="/gallery" className="text-lg hover:text-main">
+//                                     Gallery
+//                                 </Link>
+//                             </li>
+//                             <li>
+//                                 <Link href="/contact-us" className="text-lg hover:text-main">
+//                                     Contact Us
+//                                 </Link>
+//                             </li>
+//                         </ul>
+//                         <Link
+//                             href="/send-inquiry"
+//                             className="bg-main uppercase text-white px-6 py-2 text-lg rounded"
+//                         >
+//                             Send Inquiry
+//                         </Link>
+//                     </nav>
+
+//                     <button
+//                         className="lg:hidden p-2 text-white bg-main"
+//                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+//                     >
+//                         {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+//                     </button>
+//                 </div>
+//             </div>
+//         </header>
+//     );
+// }
+
+
+
+
 
